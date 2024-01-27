@@ -1,6 +1,6 @@
 # Quizzes
 
-Throughout the semester, there are seven quizzes scheduled. At least 80% of each quiz will exclusively cover the assigned reading material. The remaining portion will concentrate on topics discussed in class. This approach is adopted to reinforce active participation and engagement in class sessions, reflecting the interactive and collaborative nature of software engineering.
+Throughout the semester, there are five quizzes scheduled. At least 80% of each quiz will exclusively cover the assigned reading material. The remaining portion will concentrate on topics discussed in class. This approach is adopted to reinforce active participation and engagement in class sessions, reflecting the interactive and collaborative nature of software engineering.
 
 ## Schedule
 
