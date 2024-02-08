@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 3 - Containerization &#8212; 20EECE3093C - Software Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'graded_artifacts/lab_assignments/lab_3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Course Project" href="../course_project/course_project.html" />
+    <link rel="prev" title="Lab 2 - GitHub Project Management" href="lab_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/uc_logo.svg" class="logo__image only-light" alt="20EECE3093C - Software Engineering - Home"/>
+    <script>document.write(`<img src="../../_static/uc_logo.svg" class="logo__image only-dark" alt="20EECE3093C - Software Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/instructor_information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/course_information.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/course_policies.html">Course Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spring Semester 2024</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../24ss/frontmatter.html">Frontmatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../24ss/schedule.html">Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Graded Artifacts</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quizzes/quizzes.html">Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quizzes/quiz_1.html">Quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="lab_assignments.html">Lab Assignments</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lab_1.html">Lab 1 - Getting Started with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_2.html">Lab 2 - GitHub Project Management</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 3 - Containerization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_project/course_project.html">Course Project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_project/getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_project/deliverables.html">Project Deliverables</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../faq/oreilly/oreilly_access.html">How do I access O'Reilly books?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/github_student_benefits.html">How do I get support for GitHub student benefits?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Books</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/">Software Engineering at Google</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://learning.oreilly.com/library/view/mythical-man-month-the/0201835959/">The Mythical Man-Month</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/graded_artifacts/lab_assignments/lab_3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 3 - Containerization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-learning">Asynchronous Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-criteria">Grading Criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-github-repository">Step 1: Create a GitHub Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-configure-the-development-environment">Step 2: Configure the Development Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-commit-your-changes">Step 3: Commit Your Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-launch-your-codespace">Step 4: Launch Your Codespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-verify-your-environment">Step 5: Verify Your Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-submit-your-assignment-to-canvas">Step 6: Submit Your Assignment to CANVAS</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-containerization">
+<h1>Lab 3 - Containerization<a class="headerlink" href="#lab-3-containerization" title="Permalink to this heading">#</a></h1>
+<p>Due Date: Tuesday, February 20, 2024 at 11:59pm</p>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h2>
+<p>Create a containerized development environment configured for Python 3.10, utilizing a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and a <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file for setup. The Python environment, defined by a requirements file, must explicitly include the Pandas library with a version constraint of &gt;= 1.5 and &lt; 2.1.</p>
+</section>
+<section id="asynchronous-learning">
+<h2>Asynchronous Learning<a class="headerlink" href="#asynchronous-learning" title="Permalink to this heading">#</a></h2>
+<p>You are required to complete the <a class="reference external" href="https://www.linkedin.com/learning/learning-github-codespaces-for-enterprise">Learning GitHub Codespaces for Enterprise</a> video series.</p>
+<p>The video series, <a class="reference external" href="https://www.linkedin.com/learning/github-codespaces-for-students">GitHub Codespaces for Students</a>, is optional and available for those seeking additional practice and learning.</p>
+</section>
+<section id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<p>A GitHub repository created from the assignment template repository, augmented with the following additions:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> directory.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file configured for Codespaces.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file that specifies the Pandas dependency.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> utilizing the Python 3.10 base image, which includes commands to install the dependencies listed in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p></li>
+</ul>
+</section>
+<section id="grading-criteria">
+<h2>Grading Criteria<a class="headerlink" href="#grading-criteria" title="Permalink to this heading">#</a></h2>
+<p>This lab assignment will be assessed on a pass/fail basis. Successful completion of the assignment according to the specified criteria will result in a grade of 100% (Pass). Failure to meet the requirements will result in a grade of 0% (Fail). Please reach out to the instructor or teaching assistants if you have any questions or need clarification on the assignment requirements.</p>
+<p>You can test your environment by running the following command in the terminal:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">tests/autograder_tests.py</span></code></p>
+</section>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In this lab assignment you will be editing JSON and Dockerfile files which are sensitive to indentation.  Please be careful when editing these files to ensure that the indentation is correct.  Incorrect indentation can cause your Codespace to fail to build.</p>
+</div>
+<section id="step-1-create-a-github-repository">
+<h3>Step 1: Create a GitHub Repository<a class="headerlink" href="#step-1-create-a-github-repository" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>Accept the GitHub Classroom <a class="reference external" href="https://classroom.github.com/a/15Im3lXo">assignment invitation</a> to create your starter repository.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">classroom</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="mi">15</span><span class="n">Im3lXo</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="step-2-configure-the-development-environment">
+<h3>Step 2: Configure the Development Environment<a class="headerlink" href="#step-2-configure-the-development-environment" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Create the <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> Directory:</strong></p>
+<ul>
+<li><p>Inside your repository, make a <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">.</span><span class="n">devcontainer</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="o">.</span><span class="n">devcontainer</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Create the Dockerfile:</strong></p>
+<ul>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> in the <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> directory.</p></li>
+<li><p>Populate it with the following, ensuring Pandas is installed within the specified version range:</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10-slim</span>
+
+<span class="c"># Set the working directory</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/workspace</span>
+
+<span class="c"># Install Python packages</span>
+<span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>/workspace/
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Create the <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> File:</strong></p>
+<ul>
+<li><p>Still in the <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> directory, create a <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file.</p></li>
+<li><p>Configure it for your development environment:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python 3.10 with Pandas Development Environment&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;..&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dockerfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dockerfile&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;customizations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;vscode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nt">&quot;terminal.integrated.shell.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bin/bash&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;forwardPorts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;postCreateCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Modify the <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> File:</strong></p>
+<ul>
+<li><p>Add the following to the <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file to enable GitHub CLI in your Codespace:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ghcr.io/devcontainers/features/github-cli:1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the following vscode customization to the <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file to enable the Python extension in your Codespace:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ms-python.python&quot;</span><span class="p">],</span>
+</pre></div>
+</div>
+</li>
+<li><p>Your <strong>final</strong> <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file should look like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python 3.10 with Pandas Development Environment&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;..&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;dockerfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dockerfile&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;customizations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;vscode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;terminal.integrated.shell.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bin/bash&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;ms-python.python&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ghcr.io/devcontainers/features/github-cli:1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;forwardPorts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;postCreateCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Create the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> File:</strong></p>
+<ul>
+<li><p>In the root of your repository, create a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p></li>
+<li><p>Add the following to the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">&gt;=</span><span class="mf">1.5</span><span class="p">,</span><span class="o">&lt;</span><span class="mf">2.1</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="step-3-commit-your-changes">
+<h3>Step 3: Commit Your Changes<a class="headerlink" href="#step-3-commit-your-changes" title="Permalink to this heading">#</a></h3>
+<p>After configuring your environment, add, commit, and push your changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Added Python 3.10 development environment with Pandas&quot;</span>
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-launch-your-codespace">
+<h3>Step 4: Launch Your Codespace<a class="headerlink" href="#step-4-launch-your-codespace" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Go to your GitHub repository online.</p></li>
+<li><p>Click “Code” &gt; “Open with Codespaces” &gt; “New codespace”.</p></li>
+</ul>
+</section>
+<section id="step-5-verify-your-environment">
+<h3>Step 5: Verify Your Environment<a class="headerlink" href="#step-5-verify-your-environment" title="Permalink to this heading">#</a></h3>
+<p>Once your Codespace is ready, open a terminal and run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">autograder_tests</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>If the test passes, it means your environment is configured correctly. The output will indicate that 4 tests were run successfully with the message ‘OK’, as shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4</span> <span class="n">test</span> <span class="ow">in</span> <span class="mf">1.000</span><span class="n">s</span>
+
+<span class="n">OK</span>
+</pre></div>
+</div>
+<p>If the test fails, please reread the instructions. A failure will be clearly marked in the output, stating “FAILED” along with the number of tests that failed. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4</span> <span class="n">test</span> <span class="ow">in</span> <span class="mf">1.000</span><span class="n">s</span>
+
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="step-6-submit-your-assignment-to-canvas">
+<h3>Step 6: Submit Your Assignment to CANVAS<a class="headerlink" href="#step-6-submit-your-assignment-to-canvas" title="Permalink to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Your grade will be based on your final commit to the <strong>main</strong> branch of your GitHub repository.  Modifications made directly to files within the GitHub Codespace are not saved to your GitHub repository unless you commit and push them.</p>
+</div>
+<p>After verifying that your environment is correctly configured, and you have committed all files to your <strong>main</strong> branch, please submit the URL to your GitHub repository to the Canvas assignment.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./graded_artifacts/lab_assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2 - GitHub Project Management</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../course_project/course_project.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Course Project</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-learning">Asynchronous Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-criteria">Grading Criteria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-github-repository">Step 1: Create a GitHub Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-configure-the-development-environment">Step 2: Configure the Development Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-commit-your-changes">Step 3: Commit Your Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-launch-your-codespace">Step 4: Launch Your Codespace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-verify-your-environment">Step 5: Verify Your Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-submit-your-assignment-to-canvas">Step 6: Submit Your Assignment to CANVAS</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

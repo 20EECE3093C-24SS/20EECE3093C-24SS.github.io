@@ -3,3 +3,8 @@
 .hide-title h2 {
     display: none;
   }
+
+.test img {
+    margin: 0;
+    padding: 0;
+  }
