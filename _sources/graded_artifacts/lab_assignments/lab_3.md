@@ -143,7 +143,7 @@ After configuring your environment, add, commit, and push your changes:
 
 Once your Codespace is ready, open a terminal and run the following command:
   ```
-  python -m unittest autograder_tests.py
+  python -m unittest tests/autograder_tests.py
   ```
 
 If the test passes, it means your environment is configured correctly. The output will indicate that 4 tests were run successfully with the message 'OK', as shown below:
