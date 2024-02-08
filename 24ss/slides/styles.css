@@ -8,3 +8,12 @@
     margin: 0;
     padding: 0;
   }
+
+
+.bam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    height: 100%;
+  }
