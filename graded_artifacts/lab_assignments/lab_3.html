@@ -386,6 +386,11 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="lab-3-containerization">
 <h1>Lab 3 - Containerization<a class="headerlink" href="#lab-3-containerization" title="Permalink to this heading">#</a></h1>
 <p>Due Date: Tuesday, February 20, 2024 at 11:59pm</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There was a bug in the inital autograder tests.  The tests have been updated to reflect the correct requirements.  However, if you accepted th GitHub Classroom assignment before the correction, the erorr will still be present in your repository.  To fix this, you will need to modify line 38 of the <code class="docutils literal notranslate"><span class="pre">tests/autograder_tests.py</span></code> file to the following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">self.assertEqual(new_name,</span> <span class="pre">output_dict['displayName'])</span></code></p>
+</div>
 <section id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h2>
 <p>Create a containerized development environment configured for Python 3.10, utilizing a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and a <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> file for setup. The Python environment, defined by a requirements file, must explicitly include the Pandas library with a version constraint of &gt;= 1.5 and &lt; 2.1.</p>
@@ -550,6 +555,10 @@ document.write(`
 <li><p>Go to your GitHub repository online.</p></li>
 <li><p>Click “Code” &gt; “Open with Codespaces” &gt; “New codespace”.</p></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are editing files directly in the GitHub Codespace, you will need rebuild the Codespace to see the changes you made to the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code> files.  To rebuild the Codespace, you can type <code class="docutils literal notranslate"><span class="pre">Codespaces:</span> <span class="pre">Rebuild</span> <span class="pre">Container</span></code> in the command palette, or type <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">codesapce</span> <span class="pre">rebuild</span></code> in the terminal.</p>
+</div>
 </section>
 <section id="step-5-verify-your-environment">
 <h3>Step 5: Verify Your Environment<a class="headerlink" href="#step-5-verify-your-environment" title="Permalink to this heading">#</a></h3>

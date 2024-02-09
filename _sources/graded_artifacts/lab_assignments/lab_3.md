@@ -2,6 +2,14 @@
 
 Due Date: Tuesday, February 20, 2024 at 11:59pm
 
+```{warning}
+There was a bug in the inital autograder tests.  The tests have been updated to reflect the correct requirements.  However, if you accepted th GitHub Classroom assignment before the correction, the erorr will still be present in your repository.  To fix this, you will need to modify line 38 of the `tests/autograder_tests.py` file to the following:
+
+  ```self.assertEqual(new_name, output_dict['displayName'])```
+
+```
+
+
 ## Objective
 Create a containerized development environment configured for Python 3.10, utilizing a `Dockerfile` and a `devcontainer.json` file for setup. The Python environment, defined by a requirements file, must explicitly include the Pandas library with a version constraint of >= 1.5 and < 2.1.
 
@@ -138,6 +146,10 @@ After configuring your environment, add, commit, and push your changes:
 ### Step 4: Launch Your Codespace
 - Go to your GitHub repository online.
 - Click "Code" > "Open with Codespaces" > "New codespace".
+
+```{tip}
+If you are editing files directly in the GitHub Codespace, you will need rebuild the Codespace to see the changes you made to the `Dockerfile` and `devcontainer.json` files.  To rebuild the Codespace, you can type `Codespaces: Rebuild Container` in the command palette, or type `gh codesapce rebuild` in the terminal.
+```
 
 ### Step 5: Verify Your Environment
 
