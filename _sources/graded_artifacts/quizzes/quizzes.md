@@ -1,6 +1,6 @@
 # Quizzes
 
-Throughout the semester, there are five quizzes scheduled. At least 80% of each quiz will exclusively cover the assigned reading material. The remaining portion will concentrate on topics discussed in class. This approach is adopted to reinforce active participation and engagement in class sessions, reflecting the interactive and collaborative nature of software engineering.
+Throughout the semester, there are fi quizzes scheduled. At least 80% of each quiz will exclusively cover the assigned reading material. The remaining portion will concentrate on topics discussed in class. This approach is adopted to reinforce active participation and engagement in class sessions, reflecting the interactive and collaborative nature of software engineering.
 
 ## Schedule
 
@@ -16,8 +16,8 @@ The tentative schedule for the quizzes is provided below. Please note that this 
     - Date
 *   - 1
     - Tuesday, January 30, 2024
-*   - 2
-    - Tuesday, February 13, 2024
+*   - <s>2</s>
+    - <s>Tuesday, February 13, 2024</s>
 *   - 3
     - Tuesday, February 27, 2024
 *   - 4
