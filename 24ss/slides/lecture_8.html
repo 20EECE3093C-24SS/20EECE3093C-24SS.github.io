@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lecture_7_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lecture_7_files/libs/quarto-html/tabby.min.js"></script>
-<script src="lecture_7_files/libs/quarto-html/popper.min.js"></script>
-<script src="lecture_7_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="lecture_7_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lecture_7_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lecture_7_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="lecture_7_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="lecture_8_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture_8_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture_8_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture_8_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture_8_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture_8_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture_8_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="lecture_8_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
-  <title>lecture_7</title>
+  <title>lecture_8</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="lecture_7_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="lecture_7_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="lecture_8_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture_8_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,12 +29,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="lecture_7_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="lecture_8_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
-  <link href="lecture_7_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="lecture_7_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="lecture_7_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="lecture_7_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="lecture_8_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture_8_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture_8_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture_8_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -328,225 +328,26 @@
 
 
 <section>
-<section id="thursday-february-8-2024" class="title-slide slide level1 center">
-<h1>Thursday, February 8, 2024</h1>
+<section id="tuesday-february-13-2024" class="title-slide slide level1 center">
+<h1>Tuesday, February 13, 2024</h1>
 
 </section>
 <section id="front-matter" class="slide level2">
 <h2>Front Matter</h2>
 <ul>
-<li>Quiz 2 will be postponed (we might just skip it).</li>
-<li>Lab 3 on containerization has been posted.</li>
+<li></li>
 </ul>
 </section>
 <section id="todays-agenda" class="slide level2">
 <h2>Today’s Agenda</h2>
 <ul>
-<li>Requirements Engineering</li>
-<li>Review (again) GitHub Codespaces to aid in completing Lab 3</li>
+<li>Recap Requirements Engineering</li>
+<li>Requirements Elecitation Techniques</li>
 </ul>
 </section>
-<section id="software-development-lifescycle-sdlc" class="slide level2 scrollable" style="font-size:0.9em;">
-<h2>Software Development Lifescycle (SDLC)</h2>
-<p>As we’ve discussed, the SDLC can be broken down into 7 key stages:</p>
-<div style="margin-left: 20px;">
-<ol type="1">
-<li>Project Planning</li>
-<li><span style="color: blue; font-weight: bold;">Requirements Gathering &amp; Analysis</span></li>
-<li>Design</li>
-<li>Coding or Implementation</li>
-<li>Testing</li>
-<li>Deployment</li>
-<li>Maintenance</li>
-</ol>
-</div>
-</section></section>
-<section>
-<section id="requirements-gathering-and-analysis" class="title-slide slide level1 center">
-<h1>Requirements Gathering and Analysis</h1>
-
-</section>
-<section id="software-requirements-engineering" class="slide level2">
-<h2>Software Requirements Engineering</h2>
-<p>Requirements engineering is the process of discovering, documenting and maintaining a set of requirements for a computer-based system. In brief we will discuss:</p>
-<ul>
-<li>What are requirements?</li>
-<li>How can we gather requirements?</li>
-<li>How can we document them? (Use cases)</li>
-</ul>
-<aside class="notes">
-<ul>
-<li>The term requirements <strong>engineering</strong> is often used to denote the systematic handling of requirements.</li>
-<li>Requirements engineering is a complex process that involves many stakeholders, and is often the most difficult part of software development.</li>
-<li>You can take a whole course on requirements engineering, and still not know everything there is to know about it. This is just a brief introduction to the topic.<br>
-</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-to-build" class="slide level2 hide-title">
-<h2>What To Build?</h2>
-<blockquote>
-<p>“The hardest single part of building a software system is deciding precisely what to build. No other part of the conceptual work is as diffucult as establishing the detailed technical requirements, including all the interfaces to people, to machines and to other software systems. No other part of the work so cripples the resulting system if done wrong. No other part is more difficult to rectify later . . .”</p>
-<p><span style="margin-left: 20px; font-size: 0.7em;">– <em>F.P.Brooks</em></span></p>
-</blockquote>
-<aside class="notes">
-<ul>
-<li>F.P. Brooks is the author of the famous book “The Mythical Man-Month”. He is also the author of the quote above. The quote is from the introduction to the book, and is often used to illustrate the importance of requirements engineering.</li>
-<li>Dr.&nbsp;Brooks is a computer scientist and software engineer, best known for managing the development of IBM’s System/360 family of computers and the OS/360 software support package, then later writing candidly about the process in his seminal book</li>
-<li>Dr.&nbsp;Brooks started the computer science department at the University of North Carolina at Chapel Hill, and was the department’s first chair.<br>
-</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="tree-swing-cartoon" class="slide level2 hide-title">
-<h2>Tree Swing Cartoon</h2>
-<div class="quarto-layout-panel" data-layout-nrow="2">
-<div class="quarto-layout-row">
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_1.jpg" style="width:75.0%"></p>
-<figcaption>How the customer explained it.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_2.jpg" style="width:75.0%"></p>
-<figcaption>How the project leader understood it.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_3.jpg" style="width:75.0%"></p>
-<figcaption>How the analyst designed it.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_4.jpg" style="width:75.0%"></p>
-<figcaption>How the programmer coded it.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_5.jpg" style="width:75.0%"></p>
-<figcaption>How the consultant described it.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_6.jpg" style="width:75.0%"></p>
-<figcaption>How the project was documented.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_7.jpg" style="width:75.0%"></p>
-<figcaption>How operations deployed it.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_8.jpg" style="width:75.0%"></p>
-<figcaption>How the customer was billed.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_9.jpg" style="width:75.0%"></p>
-<figcaption>How it was supported.</figcaption>
-</figure>
-</div>
-</div>
-<div class="test quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center" style="font-size: 0.7em; text-align: center;">
-<figure>
-<p><img data-src="./static/tree_swing_metaphor/tree_swing_10.jpg" style="width:75.0%"></p>
-<figcaption>What the customer really needed.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div style="font-size: 0.4em; margin-top: -25px;">
-<p>Tree Swing Cartoon adopted for Software Engineering, by unknown author.<a href="https://en.wikipedia.org/wiki/Tree_swing_cartoon">Source</a></p>
-</div>
-<aside class="notes">
-<p>Requirement engineering is the most important part of software development.</p>
-<p>Why? Because if you don’t know what you are building, how can you build it? If you don’t know what the customer wants, how can you satisfy them? If you don’t know what the system is supposed to do, how can you test it?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="serving-the-customer" class="slide level2">
-<h2>Serving the Customer</h2>
-<p><br></p>
-<blockquote>
-<p>“You’ve got to start with the customer experience and work backwards to the technology. You can’t start with the technology and try to figure out where you’re going to try to sell it.”</p>
-<p><span style="margin-left: 20px; font-size: 0.7em;">– <em>Steve Jobs, 1977</em></span></p>
-</blockquote>
-<aside class="notes">
-<ul>
-<li><strong>Begin with the end in mind</strong>, focusing on the customer’s goals rather than personal assumptions about user needs. Engineers must design technology that aligns with the customer’s intent to influence or change consumer behavior.</li>
-<li><strong>Customer vs.&nbsp;Consumer</strong>: Distinguish between the entity paying for the product development (customer) and the end users (consumers). Engineers should not let their biases dictate the development, acknowledging that the product might aim to modify consumer behavior per the customer’s strategy.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="requirements-engineering" class="slide level2">
+<h2>Requirements Engineering</h2>
+<p>Requirements engineering is the process of discovering, documenting and maintaining a set of requirements for a computer-based system. The term <strong>engineering</strong> is choiceful, as it implies a systematic approach to the process of requirements gathering, analysis, management, etc.</p>
 </section>
 <section id="what-are-requirements" class="slide level2">
 <h2>What are Requirements?</h2>
@@ -557,17 +358,96 @@
 <li>They reflect the system design, but not the implementation (e.g., the software design)</li>
 </ul>
 </section>
-<section id="what--vs--how" class="slide level2">
-<h2>What -vs- How</h2>
-<p><br></p>
-<blockquote>
-<p>One’s persons constant is another person’s variable.</p>
-<p><span style="margin-left: 20px; font-size: 0.7em;">– Alan Perlis, “Epigrams on Programming”, 1962</span></p>
-</blockquote>
-<p><br></p>
-<p>It’s all about perspective. What is a requirement to one person, is a design to another. This is why it is important to have a clear understanding of the difference between a requirement and a design.</p>
+<section id="elementary-tasks" class="slide level2">
+<h2>Elementary Tasks</h2>
+<p>Elementary tasks encompass a variety of activities, such as:</p>
+<ul>
+<li>Eliciting requirements involves identifying all relevant requirements.</li>
+<li>Analyzing requirements consists of understanding requirements and achieving consensus.</li>
+<li>Specifying requirements entails structuring, modeling, and documenting requirements.</li>
+<li>Validating and verifying requirements ensures their validity and quality.</li>
+</ul>
+</section></section>
+<section>
+<section id="requirements-elicitation" class="title-slide slide level1 center">
+<h1>Requirements Elicitation</h1>
+
+</section>
+<section id="requirements-elicitation-1" class="slide level2">
+<h2>Requirements Elicitation</h2>
+<p>Requirements elicitation is the process of identifying the sources of requirements for a new system and obtaining those requirements from the sources. The main sources of requirements are stakeholders, who are individuals or organizations that have a direct or indirect interest in the system.</p>
+</section>
+<section id="challenges-of-requirements-elicitation" class="slide level2">
+<h2>Challenges of Requirements Elicitation</h2>
+<ul>
+<li>Elicitation plays a crucial role in understanding project requirements.</li>
+<li>Several inherent difficulties are encountered during the elicitation process.</li>
+<li>Being aware of these challenges is essential for effective elicitation.</li>
+</ul>
+</section>
+<section id="the-challenge-of-distributed-knowledge" class="slide level2">
+<h2>The Challenge of Distributed Knowledge</h2>
+<ul>
+<li>Knowledge is frequently scattered across multiple sources.</li>
+<li>It is seldom available in an explicit or documented form.</li>
+<li>Knowledge from different sources may conflict, highlighting the need for the principle of complementarity in conflict resolution.</li>
+</ul>
+</section>
+<section id="tacit-knowledge-the-say-do-problem" class="slide level2">
+<h2>Tacit Knowledge: The “Say-Do” Problem</h2>
+<ul>
+<li>Articulating knowledge used on a regular basis is often challenging for people.</li>
+<li>Tacit knowledge, although critical, is difficult to capture in documentation.</li>
+<li>The discrepancy between what people say and do complicates effective elicitation.</li>
+</ul>
+</section>
+<section id="the-impact-of-limited-observability" class="slide level2">
+<h2>The Impact of Limited Observability</h2>
+<ul>
+<li>Owners of the problem may be too engaged with the current system to observe issues.</li>
+<li>An observer’s presence might alter the natural behavior of subjects (Probe Effect, Hawthorne Effect).</li>
+<li>It’s vital to recognize and account for these effects for accurate observation.</li>
+</ul>
+</section>
+<section id="navigating-bias" class="slide level2">
+<h2>Navigating Bias</h2>
+<ul>
+<li>Stakeholders may hesitate or be unwilling to share essential information.</li>
+<li>Their interest in influencing the project’s outcome can lead to bias.</li>
+<li>Implementing awareness and mitigation strategies is crucial for reducing bias.</li>
+</ul>
+</section>
+<section id="ways-to-overcome-challenges" class="slide level2">
+<h2>Ways to Overcome Challenges</h2>
+<ul>
+<li>Recognizing and preparing for these difficulties is the first step.</li>
+<li>Utilizing a variety of elicitation techniques can help address these challenges.</li>
+<li>Active listening and critical analysis are key in resolving conflicts between information sources.</li>
+<li>Developing strategies to uncover tacit knowledge and counteract biases is essential.</li>
+</ul>
+</section></section>
+<section>
+<section id="requirements-elicitation-techniques" class="title-slide slide level1 center">
+<h1>Requirements Elicitation Techniques</h1>
+<p>The process of requirements elicitation employs a comprehensive array of techniques designed to gather insights and information from a variety of sources. These techniques not only help in understanding the needs and expectations of stakeholders but also ensure that the final product meets its intended goals and requirements.</p>
+<ul>
+<li><p><strong>Background Reading</strong>: Reviews existing documentation to understand the project domain, identifying key concepts and terminology.</p></li>
+<li><p><strong>Hard Data Collection</strong>: Gathers quantitative data using surveys, statistical analysis, and performance metrics to support decision-making.</p></li>
+<li><p><strong>Interviews</strong>: Engages stakeholders through structured conversations to gain insights into their needs, preferences, and experiences.</p></li>
+<li><p><strong>Questionnaires</strong>: Distributes questions to a wide audience to collect data on opinions, behaviors, and preferences.</p></li>
+<li><p><strong>Group Techniques</strong>: Employs workshops, brainstorming, and focus groups to harness group creativity and knowledge for identifying requirements.</p></li>
+<li><p><strong>Participant Observation</strong>: Observes users in their natural environment to gain contextual insights and identify unarticulated needs.</p></li>
+<li><p><strong>Ethnomethodology</strong>: Analyzes social interactions in their natural settings to understand cultural and social influences on requirements.</p></li>
+<li><p><strong>Knowledge Elicitation Techniques</strong>: Uses methods like protocol analysis and cognitive task analysis to extract knowledge from experts, aiding in understanding complex systems.</p></li>
+</ul>
+</section>
+<section id="background-reading" class="slide level2">
+<h2>Background Reading</h2>
+<p><strong>Overview:</strong> Background reading involves a comprehensive review of existing documentation related to the project’s domain. This includes analyzing documents, reports, and materials to build a foundational understanding of the subject.</p>
+<p><strong>Key Points:</strong> - <strong>Purpose:</strong> To identify key concepts, terminology, and the overall context of the project. - <strong>Sources:</strong> Industry reports, academic articles, company documentation, and regulatory standards. - <strong>Benefits:</strong> Provides a solid foundation for further elicitation efforts and helps avoid rework by leveraging existing knowledge.</p>
 <aside class="notes">
-<p>Alan Perlis was the first recipient of the Turing Award. The “Epigrams on Programming” is a collection of humorous and insightful quotes about programming and computer science. This quote is one of the most famous, and is often used to illustrate the difference between a requirement and a design.</p>
+<p>Sources of information: company reports, organization charts, policy manuals, job descriptions, reports, documentation of existing systems, etc. Advantages: - Helps the analyst to get an understanding of the organization before meeting the people who work there. - Helps to prepare for other types of fact finding (e.g.&nbsp;by being aware of the business objectives of the organization). - may provide detailed requirements for the current system. Disadvantages: - written documents often do not match up to reality. - Can be long-winded with much irrelevant detail</p>
+<p>Appropriate for - Whenever you not familiar with the organization being investigated.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -580,48 +460,15 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-different-perspectives-look-like" class="slide level2">
-<h2>What Different Perspectives Look Like</h2>
-<ul>
-<li>Input file processing is the what. Parsing the file is the how.</li>
-<li>Parsing the file is the what. Using a regular expression to parse the file is the how.</li>
-<li>Using a regular expression to parse the file is the what. Using the <code>re</code> module in Python is the how.</li>
-<li>Using the <code>re</code> module in Python is the what. Using the <code>re.compile</code> function is the how.</li>
-</ul>
-</section>
-<section id="requirements-engineering-at-a-glance" class="slide level2">
-<h2>Requirements Engineering at a Glance</h2>
-<div style="font-size: 0.8em;">
-<ul>
-<li class="fragment"><strong>Understand the Problem Domain</strong>: Analyze the software’s operational environment to grasp its needs, challenges, and opportunities, crucial for precise requirement identification.</li>
-<li class="fragment"><strong>Define System Scope and Boundaries</strong>: Determine what the software will and won’t cover to focus development and manage stakeholder expectations.</li>
-<li class="fragment"><strong>Ensure Stakeholder Alignment</strong>: Foster clear communication among all parties to accurately reflect needs and minimize misunderstandings.</li>
-<li class="fragment"><strong>Manage Requirements Lifecycle</strong>: Use a structured process to track and adapt requirements, ensuring the project stays goal-aligned and relevant.</li>
-</ul>
-</div>
-</section>
-<section id="the-role-of-requirements" class="slide level2">
-<h2>The Role of Requirements</h2>
-<div style="font-size: 0.8em;">
-<ul>
-<li class="fragment">For customers, requirements serve as a clear articulation of their needs and expectations, ensuring that the final product aligns with their vision.</li>
-<li class="fragment">For managers, requirements delineate the project’s boundaries, outlining both its scope and limitations, thus facilitating effective planning and resource allocation.</li>
-<li class="fragment">For designers, requirements act as the foundational blueprint, offering detailed specifications that guide the creative and functional design of the system.</li>
-<li class="fragment">For developers, requirements offer a comprehensive set of specifications that inform the implementation process, detailing the functionalities and behaviors that the system must exhibit.</li>
-<li class="fragment">For testers, requirements establish a critical framework for developing test cases, providing a benchmark against which the system’s performance and outcomes are measured.</li>
-</ul>
-</div>
-</section>
-<section id="impacts-of-inadequate-requirements" class="slide level2">
-<h2>Impacts of Inadequate Requirements</h2>
-<p><span style="font-weight: bold; color: blue;">Inadequate = Missing, Incomplete, Ambiguous, Inconsistent, or Incorrect</span></p>
-<ul>
-<li><strong>Schedule Delays</strong>: Inadequate requirements lead to rework, which delays the project.</li>
-<li><strong>Cost Overruns</strong>: Inadequate requirements lead to scope creep, which increases the cost of the project.</li>
-<li><strong>Quality Issues</strong>: Inadequate requirements lead to to defects.</li>
-</ul>
+<section id="hard-data-collection-and-sampling" class="slide level2">
+<h2>Hard Data Collection and Sampling</h2>
+<p>This technique focuses on the collection of quantitative data through various methods to inform decision-making and requirement formulation.</p>
+<p><strong>Key Points:</strong> - <strong>Methods:</strong> Surveys, statistical analysis, performance metrics. - <strong>Purpose:</strong> To gather objective, measurable evidence that supports or refutes assumptions about the project. - <strong>Benefits:</strong> Offers a basis for decision-making grounded in quantifiable data.</p>
 <aside class="notes">
-<p><strong>Incomplete</strong>: The requirements do not cover all the necessary functionality. <strong>Ambiguous</strong>: The requirements are unclear and open to interpretation. <strong>Inconsistent</strong>: Contradictory requirements.</p>
+<p>Hard data includes facts and figures… - Forms, Invoices, financial information,… - Reports used for decision making,… - Survey results, marketing data,…</p>
+<p>Sampling - Sampling used to select representative set from a population - Purposive Sampling - choose the parts you think are relevant without worrying about statistical issues - Simple Random Sampling - choose every kth element - Stratified Random Sampling - identify strata and sample each - Clustered Random Sampling - choose a representative subpopulation and sample it</p>
+<p>Sample Size is important - balance between cost of data collection/analysis and required significance</p>
+<p>Process: - Decide what data should be collected - e.g.&nbsp;banking transactions - Determine the population - e.g.&nbsp;all transactions at 5 branches over one week - Choose type of sample - e.g.&nbsp;simple random sampling - Choose sample size - e.g.&nbsp;every 20th transaction</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -634,21 +481,15 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-reality-of-inadequate-requirements" class="slide level2 hide-title">
-<h2>The Reality of Inadequate Requirements</h2>
-<div class="bam">
-<p>Creating a specification that is complete, consistent, precise, and concise <span style="color: blue"><strong>is very challenging</strong></span>.</p>
-</div>
-</section>
-<section id="example-the-mars-polar-lander-1999" class="slide level2">
-<h2><span style="font-size: 0.95em;">Example: The Mars Polar Lander (1999)</span></h2>
-<ul>
-<li><strong>Problem</strong>: The Mars Polar Lander crashed while landing on Mars.</li>
-<li><strong>Cause</strong>: The likely cause of the failure was that the spacecraft’s landing sensors generated false signals. Specifically, these spurious signals were interpreted as indications that the spacecraft had touched down, leading to the premature shutdown of the descent engines.</li>
-</ul>
+<section id="interviews" class="slide level2">
+<h2>Interviews</h2>
+<p><strong>Overview:</strong> Interviews involve direct communication with stakeholders to gather detailed insights about their needs, preferences, and experiences.</p>
+<p><strong>Key Points:</strong> - <strong>Types:</strong> Structured (fixed questions), semi-structured (guideline questions with flexibility), and unstructured (open-ended conversation). - <strong>Participants:</strong> Users, customers, experts, and other stakeholders. - <strong>Benefits:</strong> Allows for the collection of nuanced information directly from the source, providing depth to the understanding of requirements.</p>
 <aside class="notes">
-<p>Investigations into the failure suggested that the lander’s software did not have a requirement to ignore (or clear) spurious signals before confirming landing. This lack of a filtering mechanism for the sensor data was a critical oversight, contributing to the erroneous conclusion that the lander had already landed, which in turn triggered the engine shutdown sequence while the lander was still at a fatal altitude.</p>
-<p>References: - https://science.nasa.gov/mission/mars-polar-lander-deep-space-2/ - https://sma.nasa.gov/docs/default-source/safety-messages/safetymessage-2012-09-10-failureofthemarspolarlander.pdf</p>
+<p>Types: - Structured - agenda of fairly open questions - Open-ended - no pre-set agenda</p>
+<p>Advantages - Rich collection of information - Good for uncovering opinions, feelings, goals, as well as hard facts - Can probe in depth, &amp; adapt followup questions to what the person tells you</p>
+<p>Disadvantages - Large amount of qualitative data can be hard to analyze - Hard to compare different respondents - Interviewing is a difficult skill to master</p>
+<p>Watch for - Unanswerable questions (“how do you tie your shoelaces?”) - Tacit knowledge (and post-hoc rationalization) - Removal from context - Interviewer’s attitude may cause bias (e.g.&nbsp;variable attentiveness)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -661,15 +502,14 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="example-ariane-5-flight-501-1996" class="slide level2">
-<h2><span style="font-size: 0.95em;">Example: Ariane 5 Flight 501 (1996)</span></h2>
-<ul>
-<li><strong>Problem</strong>: The Ariane 5 Flight 501 exploded 40 seconds after launch.</li>
-<li><strong>Cause</strong>: The software used to control the rocket’s flight was reused from the Ariane 4 without sufficient modifications for the Ariane 5’s unique conditions. . The root cause was a software error related to the Inertial Reference System (IRS) used to control the rocket’s flight as it was not designed to handle the faster speed of the Ariane 5.</li>
-</ul>
+<section id="questionnaires" class="slide level2">
+<h2>Questionnaires</h2>
+<p><strong>Overview:</strong> Questionnaires are used to collect data from a broad audience about their opinions, behaviors, and preferences.</p>
+<p><strong>Key Points:</strong> - <strong>Design:</strong> Carefully structured questions designed to elicit clear, quantifiable responses. - <strong>Distribution:</strong> Online platforms, email, or paper-based, depending on the target audience. - <strong>Benefits:</strong> Efficient for reaching a large number of people and obtaining a wide array of data.</p>
 <aside class="notes">
-<p>The specific technical issue—data conversion from a 64-bit floating-point number to a 16-bit integer leading to an overflow error—is also accurately described. This problem occurred because the Ariane 5’s flight path and velocity profile were significantly different from those of the Ariane 4, leading to unexpected values that exceeded the range of the 16-bit integer. This error was not anticipated by the system’s designers, as they did not expect this part of the software to be active during the early flight phase of the Ariane 5.</p>
-<p>References: - https://www.ima.umn.edu/~arnold/disasters/ariane5rep.html - https://www.esa.int/Newsroom/Press_Releases/Ariane_501_-_Presentation_of_Inquiry_Board_report</p>
+<p>Advantages - Can quickly collect info from large numbers of people - Can be administered remotely - Can collect attitudes, beliefs, characteristics</p>
+<p>Disadvantages - Simplistic (presupposed) categories provide very little context - No room for users to convey their real needs</p>
+<p>Watch for: - Bias in sample selection - Bias in self-selecting respondents - Small sample size (lack of statistical significance) - Open ended questions (very hard to analyze!) - Leading questions (“have you stopped beating your wife?”) Appropriation (“What is this a picture of?”) - Ambiguous questions (I.e. not everyone is answering the same question)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -682,101 +522,70 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-chaos-report-1994" class="slide level2">
-<h2>The Chaos Report (1994)</h2>
-<ul>
-<li><strong>The Standish Group</strong>: A research advisory firm specializing in software project performance.</li>
-<li><strong>The Chaos Report</strong>: A 1994 study by The Standish Group that analyzed the success and failure rates of software projects.</li>
-<li><strong>Findings</strong>: The report found that 70% of projects failed because developers built the wrong system, with reasons related to requirements and client interactions.</li>
-</ul>
+<section id="group-techniques" class="slide level2">
+<h2>Group Techniques</h2>
+<p><strong>Overview:</strong> This approach leverages the collective knowledge and creativity of a group through collaborative sessions.</p>
+<p><strong>Key Points:</strong> - <strong>Methods:</strong> Workshops, brainstorming sessions, focus groups, Delphi method. - <strong>Purpose:</strong> To identify diverse requirements and solve complex problems through group consensus. - <strong>Benefits:</strong> Encourages the generation of a wide range of ideas and solutions, benefiting from diverse perspectives.</p>
+<aside class="notes">
+<p>Types: - Focus Groups - Brainstorming</p>
+<p>Advantages - More natural interaction between people than formal interview - Can gauge reaction to stimulus materials (e.g.&nbsp;mock-ups, storyboards, etc)</p>
+<p>Disadvantages - May create unnatural groups (uncomfortable for participants) - Danger of Groupthink - May only provide superficial responses to technical questions - Requires a highly trained facilitator</p>
+<p>Watch for - sample bias - dominance and submission</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="software-requirements-topics" class="slide level2 hide-title">
-<h2>Software Requirements Topics</h2>
-<div class="column-screen">
-<p><img data-src="./static/software_requirements_topics.png"></p>
-</div>
-<div style="font-size: 0.4em; margin-top: -10px;">
-<p>Topics in Software Requirements, SWEBOK, 2024. <a href="https://www.computer.org/education/bodies-of-knowledge/software-engineering">Source</a></p>
-</div>
+<section id="participant-observation" class="slide level2">
+<h2>Participant Observation</h2>
+<p><strong>Overview:</strong> Participant observation involves immersing in the user’s environment to observe interactions, activities, and challenges firsthand.</p>
+<p><strong>Key Points:</strong> - <strong>Approach:</strong> The observer either participates in the activities or watches as an outsider. - <strong>Objective:</strong> To gain deep contextual insights and uncover needs that are not immediately apparent. - <strong>Benefits:</strong> Provides a rich understanding of the user’s environment and the context of their requirements.</p>
+<aside class="notes">
+<p>Advantages - Contextualized; - Reveals details that other methods cannot</p>
+<p>Disadvantages - Extremely time consuming! - Resulting ‘rich picture’ is hard to analyze - Cannot say much about the results of proposed changes</p>
+<p>Watch for - going native!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="elementary-tasks-of-requirements-engineering" class="slide level2">
-<h2>Elementary Tasks of Requirements Engineering</h2>
-<p><br></p>
-<ul>
-<li><strong>Elicitation</strong>: Gathering requirements from stakeholders.</li>
-<li><strong>Analysis</strong>: Understanding and refining the requirements.</li>
-<li><strong>Specification</strong>: Documenting the requirements.</li>
-<li><strong>Validation</strong>: Ensuring the requirements are correct.</li>
-<li><strong>Management</strong>: Managing the requirements throughout the project.</li>
-</ul>
+<section id="ethnomethodology" class="slide level2">
+<h2>Ethnomethodology</h2>
+<p><strong>Overview:</strong> A qualitative research technique focusing on the analysis of social interactions in natural settings to understand the social and cultural contexts influencing requirements.</p>
+<p><strong>Key Points:</strong> - <strong>Approach:</strong> Detailed observation and analysis of everyday activities and interactions. - <strong>Purpose:</strong> To uncover how social norms and cultural practices influence the formulation of requirements. - <strong>Benefits:</strong> Offers insights into the implicit assumptions and practices that shape system requirements.</p>
+<aside class="notes">
+<p> Ethnomethodology is a subarea of Anthropology Looks for behaviours that are culture-specific  E.g. Frenchmen brag about sexual conquests to gain status;  E.g. Americans brag about money to gain status.  Each of these topics is taboo in the other culture  Uses a very tightly controlled set of methods:  Conversational analysis  Measurement of body system functions - e.g.&nbsp;heartbeat  Non-verbal behaviour studies  Detailed video analysis These techniques are useful in capturing information about a social setting.  Other observation techniques can be applied: Time-motion study  who is where, when? Communication audit  who talks to whom about what? Use of tools - status symbols plus sharing rules</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="elementary-task-elicitation" class="slide level2">
-<h2>Elementary Task: Elicitation</h2>
-<p><br></p>
-<p><strong>Elicitation</strong>: This initial phase involves gathering requirements from all stakeholders, including customers, end-users, and project team members. Effective techniques for this phase include interviews, surveys, document analysis, observation, and workshops. The goal is to collect a comprehensive set of needs, expectations, and constraints from all relevant parties.</p>
-</section>
-<section id="elementary-task-analysis" class="slide level2">
-<h2>Elementary Task: Analysis</h2>
-<p><br></p>
-<p><strong>Analysis</strong>: After gathering the requirements, the next step is to analyze them for clarity, completeness, and potential conflicts. This phase often involves prioritizing requirements, modeling them (using use cases, scenarios, or user stories), and identifying any ambiguities or inconsistencies. The analysis helps to refine the requirements into a more structured and understandable form, making it easier to address complex or conflicting needs.</p>
-</section>
-<section id="elementary-task-specification" class="slide level2">
-<h2>Elementary Task: Specification</h2>
-<p><br></p>
-<p><strong>Specification</strong>: This phase involves formally documenting the refined requirements. The documentation should be clear, precise, and understandable to all stakeholders. It often includes detailed descriptions of system functionality, user interactions, and constraints. The specification acts as a reference for the development team and a contract between developers and stakeholders. It’s important to maintain a balance between being concise and providing enough detail to guide the development process.</p>
-</section>
-<section id="elementary-task-validation" class="slide level2">
-<h2>Elementary Task: Validation</h2>
-<p><br></p>
-<p><strong>Validation</strong>: Validation ensures that the documented requirements accurately reflect the stakeholders’ needs and that the specifications are feasible and complete. Techniques for validation include requirement reviews, prototype demonstrations, and test case generation. This phase aims to catch and correct errors or misunderstandings before development proceeds further, saving time and resources.</p>
-</section>
-<section id="elementary-task-verification" class="slide level2">
-<h2>Elementary Task: Verification</h2>
-<p><br></p>
-<p><strong>Verification</strong>: While not explicitly listed in the original process, verification is a crucial step that complements validation. It involves ensuring that the system being developed adheres to the specified requirements. Verification activities can include code reviews, testing, and analysis methods. It’s essential for ensuring that the product meets the agreed-upon requirements and functions as intended.</p>
-<ul>
-<li><strong>Validation</strong>: “Are you building the right thing?”</li>
-<li><strong>Verification</strong>: “Did you build it right?”</li>
-</ul>
-</section>
-<section id="elementary-task-management" class="slide level2">
-<h2>Elementary Task: Management</h2>
-<p><br></p>
-<p><strong>Management</strong>: Requirements management is an ongoing activity that tracks and controls changes to the requirements throughout the project’s lifecycle. It involves maintaining a clear record of all requirements, their changes, and the rationale behind those changes. Effective management ensures that the project adapts to changing needs while minimizing scope creep and ensuring stakeholder alignment. It includes activities such as version control, traceability maintenance, and impact analysis of requirement changes.</p>
-</section>
-<section id="types-of-requirements" class="slide level2">
-<h2>Types of Requirements</h2>
-<ul>
-<li><strong>Functional Requirements</strong>:
-<ul>
-<li>Define what a product should do.</li>
-<li>Specify what a product should not do.</li>
-<li>Can be verified individually.</li>
-</ul></li>
-<li><strong>Non-Functional Requirements</strong> (also known as “Quality Requirements”):
-<ul>
-<li>Describe properties of the system as a whole.</li>
-</ul></li>
-<li><strong>Constraints</strong>:
-<ul>
-<li>Restrict how the system must be designed or implemented.</li>
-</ul></li>
-</ul>
-</section>
-<section id="functional-requirements" class="slide level2">
-<h2>Functional Requirements</h2>
-<p><br></p>
-<p><strong>Functional Requirements</strong>: These are specific to the functions and features that the system must provide. They describe what the system should do, including processes, data handling, user interaction, and behaviors. Functional requirements are often expressed as use cases, scenarios, or user stories. They are typically verifiable and can be tested to ensure that the system meets the specified functionality.</p>
-</section>
-<section id="non-functional-requirement" class="slide level2">
-<h2>Non-Functional Requirement</h2>
-<p><br></p>
-<p><strong>Non-Functional Requirements</strong>: These requirements define the quality attributes or criteria the system must meet, which are not about specific behaviors but about how the system performs certain tasks or characteristics it must have. This includes performance, security, usability, reliability, scalability, and compliance standards. Non-functional requirements are often more challenging to verify and test than functional requirements. They are also more subjective and can be difficult to quantify.</p>
-</section>
-<section id="constraints" class="slide level2">
-<h2>Constraints</h2>
-<p><br></p>
-<p><strong>Constraints</strong>: Constraints are specific limitations or restrictions on the design, implementation, and operation of the system. These can stem from technical, business, regulatory, or operational requirements. Constraints might include the choice of software or hardware platforms, compliance with specific standards, or limitations on resource usage. Constraints are often non-negotiable and must be adhered to throughout the project. They can significantly impact the system’s design and implementation.</p>
+<section id="knowledge-elicitation-techniques" class="slide level2">
+<h2>Knowledge Elicitation Techniques</h2>
+<p><strong>Overview:</strong> These are specialized methods aimed at extracting both explicit and tacit knowledge from subject matter experts.</p>
+<p><strong>Key Points:</strong> - <strong>Methods:</strong> Protocol analysis, repertory grids, cognitive task analysis. - <strong>Objective:</strong> To capture expert knowledge that can inform the development process, particularly for complex systems and processes. - <strong>Benefits:</strong> Facilitates a deeper understanding of specialized domains, contributing to more accurate and comprehensive requirements.</p>
+<p><strong>Conclusion:</strong> Each elicitation technique offers unique advantages and can be tailored to the specific needs of a project. Combining multiple techniques often yields the best results, ensuring a well-rounded and comprehensive understanding of requirements.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -787,19 +596,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="lecture_7_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="lecture_8_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="lecture_7_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="lecture_7_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="lecture_7_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture_8_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
