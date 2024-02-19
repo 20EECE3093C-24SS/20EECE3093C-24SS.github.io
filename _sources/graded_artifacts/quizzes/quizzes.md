@@ -18,11 +18,11 @@ The tentative schedule for the quizzes is provided below. Please note that this 
     - Tuesday, January 30, 2024
 *   - <s>2</s>
     - <s>Tuesday, February 13, 2024</s>
-*   - 3
+*   - 2
     - Tuesday, February 27, 2024
-*   - 4
+*   - 3
     - Tuesday, April 2, 2024
-*   - 5
+*   - 4
     - Tuesday, April 16, 2024
 :::
 

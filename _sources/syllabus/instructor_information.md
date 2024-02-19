@@ -8,6 +8,3 @@
 
 **Contact Preferences:** The best way to reach me is via email. When sending an email message, you can expect a response within 24 hours. If you have not received a response, please try to contact me again, this time via phone.<br>
 
-
-
-
