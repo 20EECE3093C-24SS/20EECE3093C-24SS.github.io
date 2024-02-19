@@ -1,6 +1,6 @@
 # Quiz 2
 
-Date: Tuesday, January 27, 2024
+Date: Tuesday, February 27, 2024
 
 
 ## Quiz Material 
@@ -9,9 +9,10 @@ Quiz 2 will cover all material up to and including Thursday, January 15, 2024.
 
 At least 80% of the quiz points will be awarded for questions based on the provided reading materials, asynchronous learning videos, and lecture content (e.g., slides). No more than 20% of the quiz points will be allocated to questions based on in-class discussions (e.g., content not found in the reading materials or lecture content).
 
-:::{info}
+
+```{important}
 References to quiz material are final, no more material will be addedd.
-:::
+```
 
 
 ### Readings
