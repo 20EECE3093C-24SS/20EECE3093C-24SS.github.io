@@ -1,0 +1,29 @@
+<svg width="950" height="150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Data Source Box -->
+  <rect x="10" y="30" width="100" height="50" style="fill:white;stroke:#FF00FF;stroke-width:2"/>
+  <text x="20" y="60" font-family="Verdana" font-size="14" fill="black">Data Source</text>
+
+  <!-- Pipe 1 -->
+  <line x1="110" y1="55" x2="210" y2="55" style="stroke:#008000;stroke-width:2" />
+  <polygon points="210,55 204,49 204,61" style="fill:#008000;" />
+
+  <!-- Filter 1 Box -->
+  <rect x="210" y="30" width="100" height="50" style="fill:white;stroke:#0000FF;stroke-width:2"/>
+  <text x="230" y="60" font-family="Verdana" font-size="14" fill="black">Filter</text>
+
+  <!-- Pipe 2 -->
+  <line x1="310" y1="55" x2="410" y2="55" style="stroke:#008000;stroke-width:2" />
+  <polygon points="410,55 404,49 404,61" style="fill:#008000;" />
+
+  <!-- Filter 2 Box -->
+  <rect x="410" y="30" width="100" height="50" style="fill:white;stroke:#0000FF;stroke-width:2"/>
+  <text x="430" y="60" font-family="Verdana" font-size="14" fill="black">Filter</text>
+
+  <!-- Pipe 3 -->
+  <line x1="510" y1="55" x2="610" y2="55" style="stroke:#008000;stroke-width:2" />
+  <polygon points="610,55 604,49 604,61" style="fill:#008000;" />
+
+  <!-- Data Sink Box -->
+  <rect x="610" y="30" width="100" height="50" style="fill:white;stroke:#FF0000;stroke-width:2"/>
+  <text x="620" y="60" font-family="Verdana" font-size="14" fill="black">Data Sink</text>
+</svg>
