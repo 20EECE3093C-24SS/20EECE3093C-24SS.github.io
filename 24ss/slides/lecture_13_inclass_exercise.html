@@ -428,8 +428,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="solid-violation" class="slide level2">
-<h2>SOLID Violation</h2>
+<section id="srp-violation" class="slide level2">
+<h2>SRP Violation</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href=""></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
 <span id="cb1-3"><a href=""></a></span>
@@ -466,32 +466,30 @@
 </section>
 <section id="srp-adherence" class="slide level2">
 <h2>SRP Adherence</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># file_manager_srp.py</span></span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb2-4"><a href=""></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a><span class="kw">class</span> FileManager:</span>
-<span id="cb2-7"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filename):</span>
-<span id="cb2-8"><a href=""></a>        <span class="va">self</span>.path <span class="op">=</span> Path(filename)</span>
-<span id="cb2-9"><a href=""></a></span>
-<span id="cb2-10"><a href=""></a>    <span class="kw">def</span> read(<span class="va">self</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>):</span>
-<span id="cb2-11"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.path.read_text(encoding)</span>
-<span id="cb2-12"><a href=""></a></span>
-<span id="cb2-13"><a href=""></a>    <span class="kw">def</span> write(<span class="va">self</span>, data, encoding<span class="op">=</span><span class="st">"utf-8"</span>):</span>
-<span id="cb2-14"><a href=""></a>        <span class="va">self</span>.path.write_text(data, encoding)</span>
-<span id="cb2-15"><a href=""></a></span>
-<span id="cb2-16"><a href=""></a><span class="kw">class</span> ZipFileManager:</span>
-<span id="cb2-17"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filename):</span>
-<span id="cb2-18"><a href=""></a>        <span class="va">self</span>.path <span class="op">=</span> Path(filename)</span>
-<span id="cb2-19"><a href=""></a></span>
-<span id="cb2-20"><a href=""></a>    <span class="kw">def</span> compress(<span class="va">self</span>):</span>
-<span id="cb2-21"><a href=""></a>        <span class="cf">with</span> ZipFile(<span class="va">self</span>.path.with_suffix(<span class="st">".zip"</span>), mode<span class="op">=</span><span class="st">"w"</span>) <span class="im">as</span> archive:</span>
-<span id="cb2-22"><a href=""></a>            archive.write(<span class="va">self</span>.path)</span>
-<span id="cb2-23"><a href=""></a></span>
-<span id="cb2-24"><a href=""></a>    <span class="kw">def</span> decompress(<span class="va">self</span>):</span>
-<span id="cb2-25"><a href=""></a>        <span class="cf">with</span> ZipFile(<span class="va">self</span>.path.with_suffix(<span class="st">".zip"</span>), mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> archive:</span>
-<span id="cb2-26"><a href=""></a>            archive.extractall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-2"><a href=""></a><span class="im">from</span> zipfile <span class="im">import</span> ZipFile</span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="kw">class</span> FileManager:</span>
+<span id="cb2-5"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filename):</span>
+<span id="cb2-6"><a href=""></a>        <span class="va">self</span>.path <span class="op">=</span> Path(filename)</span>
+<span id="cb2-7"><a href=""></a></span>
+<span id="cb2-8"><a href=""></a>    <span class="kw">def</span> read(<span class="va">self</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>):</span>
+<span id="cb2-9"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.path.read_text(encoding)</span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>    <span class="kw">def</span> write(<span class="va">self</span>, data, encoding<span class="op">=</span><span class="st">"utf-8"</span>):</span>
+<span id="cb2-12"><a href=""></a>        <span class="va">self</span>.path.write_text(data, encoding)</span>
+<span id="cb2-13"><a href=""></a></span>
+<span id="cb2-14"><a href=""></a><span class="kw">class</span> ZipFileManager:</span>
+<span id="cb2-15"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filename):</span>
+<span id="cb2-16"><a href=""></a>        <span class="va">self</span>.path <span class="op">=</span> Path(filename)</span>
+<span id="cb2-17"><a href=""></a></span>
+<span id="cb2-18"><a href=""></a>    <span class="kw">def</span> compress(<span class="va">self</span>):</span>
+<span id="cb2-19"><a href=""></a>        <span class="cf">with</span> ZipFile(<span class="va">self</span>.path.with_suffix(<span class="st">".zip"</span>), mode<span class="op">=</span><span class="st">"w"</span>) <span class="im">as</span> archive:</span>
+<span id="cb2-20"><a href=""></a>            archive.write(<span class="va">self</span>.path)</span>
+<span id="cb2-21"><a href=""></a></span>
+<span id="cb2-22"><a href=""></a>    <span class="kw">def</span> decompress(<span class="va">self</span>):</span>
+<span id="cb2-23"><a href=""></a>        <span class="cf">with</span> ZipFile(<span class="va">self</span>.path.with_suffix(<span class="st">".zip"</span>), mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> archive:</span>
+<span id="cb2-24"><a href=""></a>            archive.extractall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>In this refined example, we demonstrate adherence to the Single Responsibility Principle (SRP) by dividing the original FileManager class into two focused classes: FileManager and ZipFileManager. This division ensures that each class is dedicated to a single aspect of file management—FileManager to reading and writing operations, and ZipFileManager to handling ZIP file compression and decompression. This separation enhances clarity, maintainability, and scalability of the code.</p>
 <p>A key takeaway here is the nuanced understanding of “responsibility.” It’s not about limiting classes to a single action or method but ensuring they address a singular, cohesive functional area. This approach simplifies debugging, testing, and future modifications, as changes are isolated to the specific class that encapsulates the relevant functionality. The division into more specialized classes reflects a commitment to SRP, showcasing a practical application of this principle to improve software design and architecture.</p>
@@ -532,26 +530,24 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="solid-violation-1" class="slide level2">
-<h2>SOLID Violation</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># shapes_ocp.py</span></span>
+<section id="ocp-violation" class="slide level2">
+<h2>OCP Violation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">from</span> math <span class="im">import</span> pi</span>
 <span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="im">from</span> math <span class="im">import</span> pi</span>
-<span id="cb3-4"><a href=""></a></span>
-<span id="cb3-5"><a href=""></a><span class="kw">class</span> Shape:</span>
-<span id="cb3-6"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, shape_type, <span class="op">**</span>kwargs):</span>
-<span id="cb3-7"><a href=""></a>        <span class="va">self</span>.shape_type <span class="op">=</span> shape_type</span>
-<span id="cb3-8"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"rectangle"</span>:</span>
-<span id="cb3-9"><a href=""></a>            <span class="va">self</span>.width <span class="op">=</span> kwargs[<span class="st">"width"</span>]</span>
-<span id="cb3-10"><a href=""></a>            <span class="va">self</span>.height <span class="op">=</span> kwargs[<span class="st">"height"</span>]</span>
-<span id="cb3-11"><a href=""></a>        <span class="cf">elif</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"circle"</span>:</span>
-<span id="cb3-12"><a href=""></a>            <span class="va">self</span>.radius <span class="op">=</span> kwargs[<span class="st">"radius"</span>]</span>
-<span id="cb3-13"><a href=""></a></span>
-<span id="cb3-14"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb3-15"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"rectangle"</span>:</span>
-<span id="cb3-16"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb3-17"><a href=""></a>        <span class="cf">elif</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"circle"</span>:</span>
-<span id="cb3-18"><a href=""></a>            <span class="cf">return</span> pi <span class="op">*</span> <span class="va">self</span>.radius<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a><span class="kw">class</span> Shape:</span>
+<span id="cb3-4"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, shape_type, <span class="op">**</span>kwargs):</span>
+<span id="cb3-5"><a href=""></a>        <span class="va">self</span>.shape_type <span class="op">=</span> shape_type</span>
+<span id="cb3-6"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"rectangle"</span>:</span>
+<span id="cb3-7"><a href=""></a>            <span class="va">self</span>.width <span class="op">=</span> kwargs[<span class="st">"width"</span>]</span>
+<span id="cb3-8"><a href=""></a>            <span class="va">self</span>.height <span class="op">=</span> kwargs[<span class="st">"height"</span>]</span>
+<span id="cb3-9"><a href=""></a>        <span class="cf">elif</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"circle"</span>:</span>
+<span id="cb3-10"><a href=""></a>            <span class="va">self</span>.radius <span class="op">=</span> kwargs[<span class="st">"radius"</span>]</span>
+<span id="cb3-11"><a href=""></a></span>
+<span id="cb3-12"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb3-13"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"rectangle"</span>:</span>
+<span id="cb3-14"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb3-15"><a href=""></a>        <span class="cf">elif</span> <span class="va">self</span>.shape_type <span class="op">==</span> <span class="st">"circle"</span>:</span>
+<span id="cb3-16"><a href=""></a>            <span class="cf">return</span> pi <span class="op">*</span> <span class="va">self</span>.radius<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>This Python code illustrates a violation of the Open/Closed Principle (OCP), which states that software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. The Shape class is designed to calculate the area of shapes but does so in a way that is not conducive to extension. The calculate_area method uses type checking (if statements based on shape_type) to determine which calculation to perform. This approach requires modifying the Shape class whenever a new shape needs to be supported, going against the “closed for modification” aspect of OCP. To add support for a new shape, the developer must alter the existing code of the Shape class, adding another elif condition for the new shape. This not only increases the risk of introducing bugs into the existing code but also makes the class more complex and harder to maintain over time.</p>
 <style type="text/css">
@@ -568,43 +564,41 @@
 </section>
 <section id="ocp-adherence" class="slide level2">
 <h2>OCP Adherence</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># shapes_ocp.py</span></span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
-<span id="cb4-4"><a href=""></a><span class="im">from</span> math <span class="im">import</span> pi</span>
-<span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a><span class="kw">class</span> Shape(ABC):</span>
-<span id="cb4-7"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, shape_type):</span>
-<span id="cb4-8"><a href=""></a>        <span class="va">self</span>.shape_type <span class="op">=</span> shape_type</span>
-<span id="cb4-9"><a href=""></a></span>
-<span id="cb4-10"><a href=""></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb4-11"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb4-12"><a href=""></a>        <span class="cf">pass</span></span>
-<span id="cb4-13"><a href=""></a></span>
-<span id="cb4-14"><a href=""></a><span class="kw">class</span> Circle(Shape):</span>
-<span id="cb4-15"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, radius):</span>
-<span id="cb4-16"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="st">"circle"</span>)</span>
-<span id="cb4-17"><a href=""></a>        <span class="va">self</span>.radius <span class="op">=</span> radius</span>
-<span id="cb4-18"><a href=""></a></span>
-<span id="cb4-19"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb4-20"><a href=""></a>        <span class="cf">return</span> pi <span class="op">*</span> <span class="va">self</span>.radius<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb4-21"><a href=""></a></span>
-<span id="cb4-22"><a href=""></a><span class="kw">class</span> Rectangle(Shape):</span>
-<span id="cb4-23"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb4-24"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="st">"rectangle"</span>)</span>
-<span id="cb4-25"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb4-26"><a href=""></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
-<span id="cb4-27"><a href=""></a></span>
-<span id="cb4-28"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb4-29"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb4-30"><a href=""></a></span>
-<span id="cb4-31"><a href=""></a><span class="kw">class</span> Square(Shape):</span>
-<span id="cb4-32"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
-<span id="cb4-33"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="st">"square"</span>)</span>
-<span id="cb4-34"><a href=""></a>        <span class="va">self</span>.side <span class="op">=</span> side</span>
-<span id="cb4-35"><a href=""></a></span>
-<span id="cb4-36"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb4-37"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.side<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
+<span id="cb4-2"><a href=""></a><span class="im">from</span> math <span class="im">import</span> pi</span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="kw">class</span> Shape(ABC):</span>
+<span id="cb4-5"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, shape_type):</span>
+<span id="cb4-6"><a href=""></a>        <span class="va">self</span>.shape_type <span class="op">=</span> shape_type</span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb4-9"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb4-10"><a href=""></a>        <span class="cf">pass</span></span>
+<span id="cb4-11"><a href=""></a></span>
+<span id="cb4-12"><a href=""></a><span class="kw">class</span> Circle(Shape):</span>
+<span id="cb4-13"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, radius):</span>
+<span id="cb4-14"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="st">"circle"</span>)</span>
+<span id="cb4-15"><a href=""></a>        <span class="va">self</span>.radius <span class="op">=</span> radius</span>
+<span id="cb4-16"><a href=""></a></span>
+<span id="cb4-17"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb4-18"><a href=""></a>        <span class="cf">return</span> pi <span class="op">*</span> <span class="va">self</span>.radius<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb4-19"><a href=""></a></span>
+<span id="cb4-20"><a href=""></a><span class="kw">class</span> Rectangle(Shape):</span>
+<span id="cb4-21"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb4-22"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="st">"rectangle"</span>)</span>
+<span id="cb4-23"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb4-24"><a href=""></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb4-25"><a href=""></a></span>
+<span id="cb4-26"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb4-27"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb4-28"><a href=""></a></span>
+<span id="cb4-29"><a href=""></a><span class="kw">class</span> Square(Shape):</span>
+<span id="cb4-30"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
+<span id="cb4-31"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="st">"square"</span>)</span>
+<span id="cb4-32"><a href=""></a>        <span class="va">self</span>.side <span class="op">=</span> side</span>
+<span id="cb4-33"><a href=""></a></span>
+<span id="cb4-34"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb4-35"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.side<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>This updated code exemplifies adherence to the Open/Closed Principle (OCP) by restructuring the initial Shape class into an abstract base class (ABC) and defining separate classes for each shape that inherit from this base class. The base class Shape declares an abstract method calculate_area, which is implemented by the derived classes Circle, Rectangle, and Square. This design allows for the addition of new shapes without modifying the existing codebase, as each new shape can be represented by a new derived class that implements the calculate_area method. This approach ensures that the existing code is closed for modification while remaining open for extension, thereby adhering to the OCP and promoting a more scalable and maintainable software architecture.</p>
 <style type="text/css">
@@ -644,28 +638,26 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="solid-violation-2" class="slide level2">
-<h2>SOLID Violation</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># shapes_lsp.py</span></span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="kw">class</span> Rectangle:</span>
-<span id="cb5-4"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb5-5"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb5-6"><a href=""></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb5-9"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb5-10"><a href=""></a></span>
-<span id="cb5-11"><a href=""></a></span>
-<span id="cb5-12"><a href=""></a><span class="kw">class</span> Square(Rectangle):</span>
-<span id="cb5-13"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
-<span id="cb5-14"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(side, side)</span>
-<span id="cb5-15"><a href=""></a></span>
-<span id="cb5-16"><a href=""></a>    <span class="kw">def</span> <span class="fu">__setattr__</span>(<span class="va">self</span>, key, value):</span>
-<span id="cb5-17"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__setattr__</span>(key, value)</span>
-<span id="cb5-18"><a href=""></a>        <span class="cf">if</span> key <span class="kw">in</span> (<span class="st">"width"</span>, <span class="st">"height"</span>):</span>
-<span id="cb5-19"><a href=""></a>            <span class="va">self</span>.__dict__[<span class="st">"width"</span>] <span class="op">=</span> value</span>
-<span id="cb5-20"><a href=""></a>            <span class="va">self</span>.__dict__[<span class="st">"height"</span>] <span class="op">=</span> value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="lsp-violation" class="slide level2">
+<h2>LSP Violation</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="kw">class</span> Rectangle:</span>
+<span id="cb5-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb5-3"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb5-4"><a href=""></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb5-7"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb5-8"><a href=""></a></span>
+<span id="cb5-9"><a href=""></a></span>
+<span id="cb5-10"><a href=""></a><span class="kw">class</span> Square(Rectangle):</span>
+<span id="cb5-11"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
+<span id="cb5-12"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(side, side)</span>
+<span id="cb5-13"><a href=""></a></span>
+<span id="cb5-14"><a href=""></a>    <span class="kw">def</span> <span class="fu">__setattr__</span>(<span class="va">self</span>, key, value):</span>
+<span id="cb5-15"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__setattr__</span>(key, value)</span>
+<span id="cb5-16"><a href=""></a>        <span class="cf">if</span> key <span class="kw">in</span> (<span class="st">"width"</span>, <span class="st">"height"</span>):</span>
+<span id="cb5-17"><a href=""></a>            <span class="va">self</span>.__dict__[<span class="st">"width"</span>] <span class="op">=</span> value</span>
+<span id="cb5-18"><a href=""></a>            <span class="va">self</span>.__dict__[<span class="st">"height"</span>] <span class="op">=</span> value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>This example highlights a violation of the Liskov Substitution Principle (LSP) using a <code>Rectangle</code> class and its subclass <code>Square</code>. According to LSP, if class B is a subclass of class A, instances of A should be replaceable with instances of B without affecting the correctness of the program. However, this principle is breached in the given code.</p>
 <p>The <code>Rectangle</code> class calculates area based on <code>width</code> and <code>height</code>, assuming these dimensions are independent. The <code>Square</code> class, derived from <code>Rectangle</code>, enforces equal <code>width</code> and <code>height</code> to maintain square properties, which introduces unexpected behavior when <code>Square</code> is used in place of <code>Rectangle</code>. The <code>__setattr__</code> method in <code>Square</code> synchronizes <code>width</code> and <code>height</code>, violating the independence expected from a <code>Rectangle</code>.</p>
@@ -685,29 +677,27 @@
 </section>
 <section id="lsp-adherence" class="slide level2">
 <h2>LSP Adherence</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># shapes_lsp.py</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a><span class="kw">class</span> Shape(ABC):</span>
-<span id="cb6-6"><a href=""></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb6-8"><a href=""></a>        <span class="cf">pass</span></span>
-<span id="cb6-9"><a href=""></a></span>
-<span id="cb6-10"><a href=""></a><span class="kw">class</span> Rectangle(Shape):</span>
-<span id="cb6-11"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
-<span id="cb6-12"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb6-13"><a href=""></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
-<span id="cb6-14"><a href=""></a></span>
-<span id="cb6-15"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb6-16"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
-<span id="cb6-17"><a href=""></a></span>
-<span id="cb6-18"><a href=""></a><span class="kw">class</span> Square(Shape):</span>
-<span id="cb6-19"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
-<span id="cb6-20"><a href=""></a>        <span class="va">self</span>.side <span class="op">=</span> side</span>
-<span id="cb6-21"><a href=""></a></span>
-<span id="cb6-22"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
-<span id="cb6-23"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.side <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href=""></a><span class="kw">class</span> Shape(ABC):</span>
+<span id="cb6-4"><a href=""></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb6-6"><a href=""></a>        <span class="cf">pass</span></span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a><span class="kw">class</span> Rectangle(Shape):</span>
+<span id="cb6-9"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
+<span id="cb6-10"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb6-11"><a href=""></a>        <span class="va">self</span>.height <span class="op">=</span> height</span>
+<span id="cb6-12"><a href=""></a></span>
+<span id="cb6-13"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb6-14"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.width <span class="op">*</span> <span class="va">self</span>.height</span>
+<span id="cb6-15"><a href=""></a></span>
+<span id="cb6-16"><a href=""></a><span class="kw">class</span> Square(Shape):</span>
+<span id="cb6-17"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, side):</span>
+<span id="cb6-18"><a href=""></a>        <span class="va">self</span>.side <span class="op">=</span> side</span>
+<span id="cb6-19"><a href=""></a></span>
+<span id="cb6-20"><a href=""></a>    <span class="kw">def</span> calculate_area(<span class="va">self</span>):</span>
+<span id="cb6-21"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.side <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> shapes_lsp <span class="im">import</span> Rectangle, Square</span>
 <span id="cb7-2"><a href=""></a><span class="op">&gt;&gt;&gt;</span> <span class="kw">def</span> get_total_area(shapes):</span>
@@ -755,8 +745,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="solid-violation-3" class="slide level2">
-<h2>SOLID Violation</h2>
+<section id="isp-violation" class="slide level2">
+<h2>ISP Violation</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb8-2"><a href=""></a></span>
 <span id="cb8-3"><a href=""></a><span class="kw">class</span> Printer(ABC):</span>
@@ -809,38 +799,36 @@
 </section>
 <section id="isp-adherence" class="slide level2">
 <h2>ISP Adherence</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># printers_isp.py</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
 <span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a><span class="kw">class</span> Printer(ABC):</span>
-<span id="cb9-6"><a href=""></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb9-7"><a href=""></a>    <span class="kw">def</span> <span class="bu">print</span>(<span class="va">self</span>, document):</span>
-<span id="cb9-8"><a href=""></a>        <span class="cf">pass</span></span>
-<span id="cb9-9"><a href=""></a></span>
-<span id="cb9-10"><a href=""></a><span class="kw">class</span> Fax(ABC):</span>
-<span id="cb9-11"><a href=""></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb9-12"><a href=""></a>    <span class="kw">def</span> fax(<span class="va">self</span>, document):</span>
-<span id="cb9-13"><a href=""></a>        <span class="cf">pass</span></span>
-<span id="cb9-14"><a href=""></a></span>
-<span id="cb9-15"><a href=""></a><span class="kw">class</span> Scanner(ABC):</span>
-<span id="cb9-16"><a href=""></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb9-17"><a href=""></a>    <span class="kw">def</span> scan(<span class="va">self</span>, document):</span>
-<span id="cb9-18"><a href=""></a>        <span class="cf">pass</span></span>
-<span id="cb9-19"><a href=""></a></span>
-<span id="cb9-20"><a href=""></a><span class="kw">class</span> OldPrinter(Printer):</span>
-<span id="cb9-21"><a href=""></a>    <span class="kw">def</span> <span class="bu">print</span>(<span class="va">self</span>, document):</span>
-<span id="cb9-22"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Printing </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss"> in black and white..."</span>)</span>
-<span id="cb9-23"><a href=""></a></span>
-<span id="cb9-24"><a href=""></a><span class="kw">class</span> NewPrinter(Printer, Fax, Scanner):</span>
-<span id="cb9-25"><a href=""></a>    <span class="kw">def</span> <span class="bu">print</span>(<span class="va">self</span>, document):</span>
-<span id="cb9-26"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Printing </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss"> in color..."</span>)</span>
-<span id="cb9-27"><a href=""></a></span>
-<span id="cb9-28"><a href=""></a>    <span class="kw">def</span> fax(<span class="va">self</span>, document):</span>
-<span id="cb9-29"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Faxing </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss">..."</span>)</span>
-<span id="cb9-30"><a href=""></a></span>
-<span id="cb9-31"><a href=""></a>    <span class="kw">def</span> scan(<span class="va">self</span>, document):</span>
-<span id="cb9-32"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Scanning </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss">..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href=""></a><span class="kw">class</span> Printer(ABC):</span>
+<span id="cb9-4"><a href=""></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb9-5"><a href=""></a>    <span class="kw">def</span> <span class="bu">print</span>(<span class="va">self</span>, document):</span>
+<span id="cb9-6"><a href=""></a>        <span class="cf">pass</span></span>
+<span id="cb9-7"><a href=""></a></span>
+<span id="cb9-8"><a href=""></a><span class="kw">class</span> Fax(ABC):</span>
+<span id="cb9-9"><a href=""></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb9-10"><a href=""></a>    <span class="kw">def</span> fax(<span class="va">self</span>, document):</span>
+<span id="cb9-11"><a href=""></a>        <span class="cf">pass</span></span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a><span class="kw">class</span> Scanner(ABC):</span>
+<span id="cb9-14"><a href=""></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb9-15"><a href=""></a>    <span class="kw">def</span> scan(<span class="va">self</span>, document):</span>
+<span id="cb9-16"><a href=""></a>        <span class="cf">pass</span></span>
+<span id="cb9-17"><a href=""></a></span>
+<span id="cb9-18"><a href=""></a><span class="kw">class</span> OldPrinter(Printer):</span>
+<span id="cb9-19"><a href=""></a>    <span class="kw">def</span> <span class="bu">print</span>(<span class="va">self</span>, document):</span>
+<span id="cb9-20"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Printing </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss"> in black and white..."</span>)</span>
+<span id="cb9-21"><a href=""></a></span>
+<span id="cb9-22"><a href=""></a><span class="kw">class</span> NewPrinter(Printer, Fax, Scanner):</span>
+<span id="cb9-23"><a href=""></a>    <span class="kw">def</span> <span class="bu">print</span>(<span class="va">self</span>, document):</span>
+<span id="cb9-24"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Printing </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss"> in color..."</span>)</span>
+<span id="cb9-25"><a href=""></a></span>
+<span id="cb9-26"><a href=""></a>    <span class="kw">def</span> fax(<span class="va">self</span>, document):</span>
+<span id="cb9-27"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Faxing </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss">..."</span>)</span>
+<span id="cb9-28"><a href=""></a></span>
+<span id="cb9-29"><a href=""></a>    <span class="kw">def</span> scan(<span class="va">self</span>, document):</span>
+<span id="cb9-30"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Scanning </span><span class="sc">{</span>document<span class="sc">}</span><span class="ss">..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>To fix this issue, you should separate the interfaces into smaller and more specific classes. Then you can create concrete classes by inheriting from multiple interface classes as needed. Now Printer, Fax, and Scanner are base classes that provide specific interfaces with a single responsibility each. To create OldPrinter, you only inherit the Printer interface. This way, the class won’t have unused methods. To create the ModernPrinter class, you need to inherit from all the interfaces. In short, you’ve segregated the Printer interface.</p>
 <p>This class design allows you to create different machines with different sets of functionalities, making your design more flexible and extensible.</p>
