@@ -393,9 +393,10 @@
 </section>
 <section id="importance-of-design-patterns" class="slide level2">
 <h2>Importance of Design Patterns</h2>
-<p>Understanding design patterns is crucial for software developers. It not only helps in creating more efficient and effective solutions but also in avoiding the trap of Cargo Cult Programming, where patterns are used without understanding their purpose or applicability.</p>
+<p>Understanding design patterns is crucial for software developers. It not only helps in creating more efficient and effective solutions but also in avoiding the trap of <em>Cargo Cult Programming</em>, where patterns are used without understanding their purpose or applicability.</p>
 <aside class="notes">
 <p>The importance of truly understanding design patterns rather than superficially applying them is stressed in this slide. We discuss how a deep knowledge of patterns can prevent the pitfalls of Cargo Cult Programming, ensuring that the use of patterns in software design is both purposeful and appropriate.</p>
+<p>Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose. Cargo cult programming is symptomatic of a programmer not understanding either a bug they were attempting to solve or the apparent solution.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -478,6 +479,7 @@
 <p>The Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance. It is used when exactly one object is needed to coordinate actions across the system.</p>
 
 <img data-src="./static/design/singleton.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Imagine you have a special class where you want only one object or instance of this class to exist at any time. For example, a class that manages the settings of your application. You use the Singleton pattern to ensure there’s only one settings manager in your entire application that everyone accesses and modifies.</p>
 <p>Here’s the principle behind the Singleton pattern:</p>
 <ol type="1">
 <li>Make the class’s constructor private to prevent other objects from using the <code>new</code> operator with the Singleton class.</li>
@@ -534,6 +536,7 @@
 <p>The Factory Method pattern is a creational design pattern that provides an interface for creating an object, but let subclasses decide which object to instantiate. This pattern is used to delegate the instantiation logic to child classes.</p>
 
 <img data-src="./static/design/factory-method-design-pattern.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Think of this as a customization shop. Depending on what you want, the shop (Factory) decides which specific product (object) to create and give you. For example, if you want a pizza, the factory checks if you want a vegetarian or a meat pizza and then creates the one you asked for. It’s a way to create objects where the exact type of the object may not be known until runtime.</p>
 <p>The Factory method pattern works on the principle of:</p>
 <ol type="1">
 <li>Defining an interface for creating an object, but letting subclasses decide which class to instantiate. The Factory method lets a class defer instantiation to subclasses.</li>
@@ -589,6 +592,7 @@
 <p>The Builder pattern is a creational design pattern that allows for the construction of complex objects step by step. Unlike other creational patterns that construct products in a single step, the Builder pattern constructs the product step by step under the control of the director.</p>
 
 <img data-src="./static/design/builder-design-pattern.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Imagine you’re building a LEGO set. Instead of having all the pieces come together in one go, the Builder pattern helps you build the final object step by step. This is useful when creating an object involves many steps and some of them might be optional. For example, when assembling a computer, you might choose to add a graphics card, more RAM, or different storage options based on the user’s choices.</p>
 <p>The Builder pattern separates the construction of a complex object from its representation, allowing the same construction process to create different representations. This pattern is particularly useful when an object needs to be created with many optional components or configurations. It involves:</p>
 <ol type="1">
 <li>A <strong>Builder</strong> class that specifies an abstract interface for creating parts of a Product object.</li>
@@ -673,6 +677,7 @@
 <p>The adapter pattern is used to allow two incompatible interfaces to work together. This is done by creating a wrapper around one of the interfaces that converts it into an interface expected by the client.</p>
 
 <img data-src="./static/design/adapter_design_pattern.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Let’s say you have a charger that doesn’t fit into your phone. You use an adapter that makes it compatible. Similarly, the Adapter pattern is used in programming to make one class compatible with another by converting interfaces or data so they can work together without changing their existing code.</p>
 <p>Here’s how it works:</p>
 <ol type="1">
 <li>The adapter gets an interface, compatible with one of the existing objects.</li>
@@ -729,7 +734,20 @@
 <h2>Composite Pattern</h2>
 <p>Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.</p>
 
-<img data-src="./static/design/composite-pattern.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="./static/design/composite-pattern.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Think of a folder on your computer. A folder can contain files or even other folders. The Composite pattern allows you to treat both individual files and collections of files (folders) in the same way. This makes working with structures like trees (where you have hierarchies of objects) much simpler.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="composite-pattern-contd." class="slide level2 smaller">
 <h2>Composite Pattern (contd.)</h2>
 
@@ -790,6 +808,7 @@
 <p>The Iterator pattern, a cornerstone in behavioral design, enables sequential traversal of complex data structures while concealing their internal mechanics. This pattern allows access to elements of a collection (be it a list, stack, tree, etc.) without revealing the collection’s underlying structure.</p>
 
 <img data-src="./static/design/iterator.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Imagine you have a collection of stickers. You want to look through them one by one without needing to know how they’re stored (in a book, a box, etc.). The Iterator pattern gives you a standard way to do that, allowing you to go through the items in a collection without exposing the underlying structure.</p>
 <p>The Iterator pattern involves:</p>
 <ol type="1">
 <li><strong>Iterator</strong>: An interface that defines the operations for accessing and traversing elements.</li>
@@ -847,6 +866,7 @@
 <p>The Strategy pattern is a behavioral design pattern that enables selecting an algorithm’s runtime behavior among a family of algorithms. It defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
 
 <img data-src="./static/design/strategy.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Suppose you’re playing a video game where you can switch weapons based on the situation. Each weapon has a different way of attacking (strategy). The Strategy pattern allows you to change the attack strategy (weapon) you’re using during runtime based on the situation, making your character more flexible and adaptable.</p>
 <p>The Strategy pattern involves:</p>
 <ol type="1">
 <li><strong>Context</strong>: A class that contains a reference to a Strategy object. The Context delegates the request from the client to its Strategy.</li>
@@ -903,6 +923,7 @@
 <p>The Observer pattern is a behavioral design pattern in which an object, known as the subject, maintains a list of its dependents, called observers, and notifies them of any state changes, usually by calling one of their methods. It is used to establish a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</p>
 
 <img data-src="./static/design/observer.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Imagine you subscribe to a magazine. Whenever a new edition is released, you get notified and receive it. In programming, the Observer pattern is similar: a subject (the magazine) notifies all its subscribers (observers) about any changes or updates, allowing them to “react” by receiving the latest updates automatically.</p>
 <p>The Observer pattern consists of:</p>
 <ol type="1">
 <li><strong>Subject</strong>: Maintains a list of observers, facilitates adding or removing observers, and notifies them of state changes.</li>
