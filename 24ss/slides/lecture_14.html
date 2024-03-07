@@ -336,7 +336,8 @@
 <h2>Today’s Agenda</h2>
 <ul>
 <li>Recap from last lecture</li>
-<li>Key Design Patterns</li>
+<li>Emerging Design Patterns</li>
+<li>Foundational Design Patterns</li>
 <li>Anti-Patterns</li>
 </ul>
 </section>
@@ -440,6 +441,146 @@
 </ul>
 <aside class="notes">
 <p>This slide lists some of the most important design patterns, providing a high-level overview of each. It sets the stage for a deeper dive into these patterns, which will be covered in subsequent slides.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="emerging-design-patterns" class="title-slide slide level1 center">
+<h1>Emerging Design Patterns</h1>
+
+</section>
+<section id="emerging-design-patterns-in-software-development" class="slide level2 smaller">
+<h2>Emerging Design Patterns in Software Development</h2>
+<p>Modern challenges in application development, such as scalability, performance, and maintainability, have catalyzed the evolution of design patterns. These new patterns complement and extend the foundational Creational, Structural, and Behavioral categories to address contemporary software engineering problems effectively.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Design patterns are not invented; they are discovered. They are the result of solving common problems and discovering common solutions. This is evolving as new challenges emerge in software development, so do the design patterns.</p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Explore the driving forces behind the emergence of new design patterns in software development, emphasizing how modern application requirements—like distributed systems, cloud computing, and real-time data processing—necessitate these innovations. Discuss the transition from monolithic to microservices architectures and how it influences design pattern evolution.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="concurrency-patterns" class="slide level2 smaller">
+<h2>Concurrency Patterns</h2>
+<p>Concurrency patterns are vital for maximizing the performance of applications by efficiently managing multi-threaded and parallel computing processes.</p>
+<ul>
+<li><strong>Thread Pool</strong>: Manages a pool of worker threads for executing multiple tasks concurrently, optimizing resource utilization and improving application throughput.</li>
+<li><strong>Promise</strong>: Facilitates asynchronous programming by representing the future value of an operation, enhancing code readability and maintainability.</li>
+</ul>
+<aside class="notes">
+<p>Delve into the critical role of concurrency patterns in modern software development, focusing on their importance for applications that demand high performance, scalability, and responsive user experiences. Discuss challenges like deadlocks and race conditions and how these patterns help mitigate them.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cloud-design-patterns" class="slide level2 smaller">
+<h2>Cloud Design Patterns</h2>
+<p>Cloud design patterns specifically address the challenges encountered in cloud computing, such as managing transient failures and efficiently handling dynamic resource scaling.</p>
+<ul>
+<li><strong>Circuit Breaker</strong>: Automatically detects and prevents repeated failures, avoiding resource depletion and enabling fast recovery.</li>
+<li><strong>Bulkhead</strong>: Limits the impact of failures to parts of an application, ensuring that one component’s issues do not compromise the entire system’s availability.</li>
+</ul>
+<aside class="notes">
+<p>Highlight the necessity of designing for resilience, scalability, and flexibility in cloud environments. Discuss how these patterns contribute to building robust applications that can thrive in the inherently volatile and distributed nature of cloud computing platforms.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="security-design-patterns" class="slide level2 smaller">
+<h2>Security Design Patterns</h2>
+<p>Security design patterns are essential for developing secure applications, focusing on mitigating threats and enhancing mechanisms for data protection and access control.</p>
+<ul>
+<li><strong>Authentication Enforcer</strong>: Centralizes user authentication, ensuring consistent and secure access policy enforcement across applications.</li>
+<li><strong>Security Sandbox</strong>: Provides a tightly controlled environment to execute untrusted code, preventing it from accessing or harming the host system.</li>
+</ul>
+<aside class="notes">
+<p>Emphasize the critical importance of incorporating security design patterns from the early stages of software development to protect against evolving threats and vulnerabilities. Discuss how these patterns help maintain data integrity, confidentiality, and availability.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="message-driven-patterns" class="slide level2 smaller">
+<h2>Message-Driven Patterns</h2>
+<p>Message-driven patterns are crucial for systems leveraging event-driven architectures, ensuring efficient, reliable message flow and asynchronous communication between components.</p>
+<ul>
+<li><strong>Message Queue</strong>: Temporarily stores messages to be processed, enabling decoupling of message production from consumption.</li>
+<li><strong>Publish/Subscribe</strong>: Allows messages to be published to multiple subscribers, facilitating broad and flexible communication between disparate parts of an application.</li>
+</ul>
+<aside class="notes">
+<p>Explain the role of message-driven patterns in facilitating loosely coupled, scalable architectures that support asynchronous processing and event-driven communication. Discuss benefits such as improved scalability, flexibility, and system resilience.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-management-patterns" class="slide level2 smaller">
+<h2>Data Management Patterns</h2>
+<p>These patterns provide strategies for efficiently handling large volumes of data, addressing challenges related to big data and intensive data application requirements.</p>
+<ul>
+<li><strong>Repository</strong>: Encapsulates the logic required to access data sources, providing a more abstract and flexible approach to data management.</li>
+<li><strong>Unit of Work</strong>: Keeps track of changes during a transaction and coordinates the writing out of and the resolution of concurrency problems.</li>
+</ul>
+<aside class="notes">
+<p>Discuss the significance of data management patterns in supporting efficient, scalable data storage, retrieval, and processing. Highlight how these patterns aid in managing complexity, ensuring data consistency, and optimizing performance in data-intensive applications.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
