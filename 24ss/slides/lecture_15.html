@@ -392,10 +392,18 @@
     <div class="slides">
 
 
-<section>
 <section id="tuesday-march-26-2024" class="title-slide slide level1 center">
 <h1>Tuesday, March 26, 2024</h1>
 
+</section>
+
+<section>
+<section id="front-matter" class="title-slide slide level1 center">
+<h1>Front Matter</h1>
+<ul>
+<li>Quiz 3 is Tuesday, April 2, 2024.</li>
+<li>Quiz 3 will include today’s material (but not Thursday’s).</li>
+</ul>
 </section>
 <section id="todays-agenda" class="slide level2">
 <h2>Today’s Agenda</h2>
@@ -1802,6 +1810,29 @@
 <li>Requiring explicit listing of all dependencies ensures that no unintended dependencies are included, improving build performance.</li>
 <li>This practice also aids in better understanding and managing project dependencies.</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="aside-transitive-dependencies" class="slide level2">
+<h2>Aside: Transitive Dependencies</h2>
+<p>Transitive dependencies refer to the indirect dependencies within a project’s module. These are the libraries or modules that your project’s direct dependencies rely on. Managing them explicitly is crucial to prevent build system from inadvertently relying on them, ensuring a more stable and predictable build process.</p>
+<aside class="notes">
+<ul>
+<li>Transitive dependencies are not directly referenced by your project but are required by your project’s direct dependencies.</li>
+<li>Overlooking transitive dependencies can lead to unexpected behavior or build failures, as the build system may assume the presence of these indirect dependencies.</li>
+<li>By explicitly listing all dependencies, including transitive ones, you gain better control over your project’s dependency graph, reducing the risk of incompatibilities and enhancing build reproducibility.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Imagine your project, <code>Project A</code>, depends directly on Library B. Library B, in turn, requires Library C to function properly. Library C is a transitive dependency of your project. If Library B’s version is updated and it no longer requires Library C, but your project inadvertently relies on functionality from Library C, your project will break unless you have explicitly defined a dependency on Library C.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
