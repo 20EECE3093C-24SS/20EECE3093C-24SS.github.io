@@ -11,7 +11,7 @@ At least 80% of the quiz points will be awarded for questions based on the provi
 
 
 ```{important}
-References to quiz material are subject to change until Thursday, March 28, 2024
+References to quiz material are final, no more material will be addedd.
 ```
 
 
