@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2542 1742" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <g transform="matrix(1,0,0,1,-242.654,-234.546)">
+        <path d="M2767,261C2766.43,302.433 2764.57,343.817 2759.85,384.982C2756.89,410.777 2753.34,436.494 2748.56,462.104C2745.41,478.941 2744.2,496.521 2739.52,512.864C2731.03,542.572 2725.47,573.011 2714.59,602.219C2706.73,623.322 2701.9,645.753 2693.87,666.952C2680.12,703.274 2665.34,739.095 2648.69,774.326C2633.29,806.923 2615.94,838.349 2598.7,869.836C2583.17,898.193 2565.19,925.212 2546.99,951.99C2524.71,984.757 2501.88,1017.12 2477.04,1048.03C2448.89,1083.06 2419.99,1117.55 2388.74,1149.74C2349.84,1189.81 2310.52,1229.74 2268.54,1266.48C2231.64,1298.77 2193.59,1330.01 2153.32,1358.46C2132.74,1373.01 2112.76,1388.67 2091.82,1402.73C2068.04,1418.7 2044.84,1435.5 2020.23,1450.38C1978.53,1475.58 1936.53,1500.02 1893.17,1522.33C1856.85,1541 1821.58,1561.75 1785,1580C1763.58,1590.69 1740.51,1597.67 1719.11,1608.22C1685.05,1625.02 1650.15,1639.94 1614.86,1653.64C1570.86,1670.73 1525.87,1685.26 1481.14,1700.42C1458.02,1708.27 1435.41,1718.29 1411.89,1724.58C1370.88,1735.54 1330.35,1748.22 1289.08,1758.34C1255.78,1766.51 1222.17,1773.35 1188.84,1781.31C1167.88,1786.31 1098.34,1796.68 1077.09,1801C1061.86,1804.09 970.917,1814.74 862.221,1822.57C731.497,1831.98 580.382,1838.54 574.562,1839.22" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:11px;"/>
+    </g>
+    <g transform="matrix(1.0784,0,0,1,-285.224,-234.546)">
+        <path d="M2618,1842C2251,1844.29 570.221,1842.84 566.25,1843.07L566.25,237.546" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:5.77px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-743.64,-84.0053)">
+        <g transform="matrix(96,0,0,96,1005.53,896.899)">
+        </g>
+        <text x="738.858px" y="896.899px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:96px;">COST</text>
+    </g>
+    <g transform="matrix(1,0,0,1,596.884,844.496)">
+        <g transform="matrix(96,0,0,96,968.171,896.899)">
+        </g>
+        <text x="738.858px" y="896.899px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:96px;">TIME</text>
+    </g>
+    <g transform="matrix(1,0,0,1,486.393,335.725)">
+        <g transform="matrix(96,0,0,96,330.797,68.7188)">
+        </g>
+        <g transform="matrix(96,0,0,96,357.469,68.7188)">
+        </g>
+        <g transform="matrix(96,0,0,96,827.203,68.7188)">
+        </g>
+        <g transform="matrix(96,0,0,96,853.875,68.7188)">
+        </g>
+        <text x="0px" y="68.719px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:96px;">Cost of ﬁnding and ﬁxing</text>
+        <g transform="matrix(96,0,0,96,1195.17,167.859)">
+        </g>
+        <text x="0px" y="167.859px" style="font-family:'Arial-ItalicMT', 'Arial', sans-serif;font-style:italic;font-size:96px;">defects increases over time.</text>
+    </g>
+</svg>
