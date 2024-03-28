@@ -23,6 +23,7 @@ The selected readings listed below will be covered in Quiz 3.
 * [pg. 1-15, 36-37, An Introduction to Software Architecture, Garlan, D., Shaw, M.](http://www.cs.cmu.edu/afs/cs/project/able/ftp/intro_softarch/intro_softarch.pdf)
 * [Thinking like a Software Architect, Kästner, C.](https://web.njit.edu/~mjk76/teaching/cs490-sp23/assets/architecture.pdf)
 * [A Brief Introduction to Design Patterns, Weinman, J.](https://20eece3093c-24ss.github.io/24ss/resources/DesignPatterns.pdf)
+* [Bazel Concepts](https://bazel.build/concepts/build-ref)
 
 ### Lectures
 
