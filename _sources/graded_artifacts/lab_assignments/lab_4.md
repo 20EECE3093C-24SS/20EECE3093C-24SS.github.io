@@ -40,7 +40,6 @@ Accept the GitHub Classroom assignment by clicking on the following link:
 
 https://classroom.github.com/a/Gc-fowPs
 
-This link will create a private repository for you on GitHub, where you will complete the lab assignment.
 
 ## Task 2: Grade Conversion Function
 
