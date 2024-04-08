@@ -22,7 +22,7 @@ The tentative schedule for the lab assignments is provided below. Please note th
 *   - <s>4</s>
     - <s>Tuesday, March 26, 2024 at 11:59pm</s>
 *   - 4
-    - Tuesday, April 9, 2024 at 11:59pm
+    - Tuesday, April 23, 2024 at 11:59pm
 :::
 
 ## Grading

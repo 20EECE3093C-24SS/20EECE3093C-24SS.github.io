@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 4 - Software Development Practices &#8212; 20EECE3093C - Software Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'graded_artifacts/lab_assignments/lab_4';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Course Project" href="../course_project/course_project.html" />
+    <link rel="prev" title="Lab 3 - Containerization" href="lab_3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/uc_logo.svg" class="logo__image only-light" alt="20EECE3093C - Software Engineering - Home"/>
+    <script>document.write(`<img src="../../_static/uc_logo.svg" class="logo__image only-dark" alt="20EECE3093C - Software Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/instructor_information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/course_information.html">Course Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/course_policies.html">Course Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spring Semester 2024</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../24ss/frontmatter.html">Frontmatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../24ss/schedule.html">Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Graded Artifacts</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quizzes/quizzes.html">Quizzes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quizzes/quiz_1.html">Quiz 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quizzes/quiz_2.html">Quiz 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quizzes/quiz_3.html">Quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="lab_assignments.html">Lab Assignments</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lab_1.html">Lab 1 - Getting Started with GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_2.html">Lab 2 - GitHub Project Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_3.html">Lab 3 - Containerization</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 4 - Software Development Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_project/course_project.html">Course Project</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_project/getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_project/deliverables.html">Project Deliverables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_project/grading_rubric.html">Grading Rubric</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../faq/oreilly/oreilly_access.html">How do I access O'Reilly books?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/github_student_benefits.html">How do I get support for GitHub student benefits?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Books</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://learning.oreilly.com/library/view/software-engineering-at/9781492082781/">Software Engineering at Google</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://learning.oreilly.com/library/view/mythical-man-month-the/0201835959/">The Mythical Man-Month</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://opensource.guide">Open Source Guides</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/graded_artifacts/lab_assignments/lab_4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 4 - Software Development Practices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-rubric">Grading Rubric</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-accept-github-classroom-assignment">Task 1: Accept GitHub Classroom Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-grade-conversion-function">Task 2: Grade Conversion Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-requirements">Function Requirements:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-grade-conversion-unit-tests">Task 3: Grade Conversion Unit Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-requirements">Test Requirements:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-github-actions-pytest-workflow">Task 4: GitHub Actions Pytest Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-workflow-updates">Pytest Workflow Updates:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-github-actions-sphinx-workflow">Task 5: GitHub Actions Sphinx Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-workflow-updates">Sphinx Workflow Updates:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-github-actions-badge">Task 6: GitHub Actions Badge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-badge-updates">README Badge Updates:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-verify-it-works">Task 7: Verify It Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-review-the-html-documentation">Task 8: Review the HTML Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9-submit-your-assignment-to-canvas">Task 9: Submit Your Assignment to CANVAS</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-software-development-practices">
+<h1>Lab 4 - Software Development Practices<a class="headerlink" href="#lab-4-software-development-practices" title="Permalink to this heading">#</a></h1>
+<p><strong>Due Date:</strong> Tuesday, April 23, 2024, at 11:59 PM</p>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h2>
+<p>This lab is designed to help you practice key aspects of good software development practices, including writing unit tests, using GitHub Actions for continuous integration, and generating documentation with Sphinx. You will be tasked with writing a Python function that converts a student’s numerical score into a corresponding letter grade. Additionally, you will write a comprehensive set of unit tests to verify the function’s behavior and edge cases. Finally, you will configure GitHub Actions workflows to run the unit tests and generate documentation with Sphinx, and you will add badges to the README file to display the status of the GitHub Actions workflows.</p>
+</section>
+<section id="grading-rubric">
+<h2>Grading Rubric<a class="headerlink" href="#grading-rubric" title="Permalink to this heading">#</a></h2>
+<p>The lab is worth <strong>100 points</strong> and will be graded according to the following components:</p>
+<ul class="simple">
+<li><p><strong>Function Implementation (30 points):</strong></p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">convert_to_letter_grade</span></code> function is correctly implemented.</p></li>
+<li><p>The function correctly converts numerical scores to letter grades.</p></li>
+<li><p>The function raises the appropriate exceptions for invalid input values.</p></li>
+<li><p>The function is documented with a Google Python Style Guide docstring.</p></li>
+</ul>
+</li>
+<li><p><strong>Unit Tests (30 points):</strong></p>
+<ul>
+<li><p>The unit tests cover all aspects of the <code class="docutils literal notranslate"><span class="pre">convert_to_letter_grade</span></code> function.</p></li>
+<li><p>The tests verify the function’s behavior at exact grade boundaries.</p></li>
+<li><p>The tests validate the function’s handling of invalid input values.</p></li>
+</ul>
+</li>
+<li><p><strong>GitHub Actions Pytest Workflow (15 points):</strong></p>
+<ul>
+<li><p>The Pytest workflow runs successfully on push events to the main branch.</p></li>
+<li><p>The workflow uses a matrix strategy to test the code against different Python versions.</p></li>
+<li><p>The workflow installs the Python dependencies specified in the requirements.txt file.</p></li>
+<li><p>The workflow runs the Pytest command to execute the unit tests.</p></li>
+</ul>
+</li>
+<li><p><strong>GitHub Actions Sphinx Workflow (15 points):</strong></p>
+<ul>
+<li><p>The Sphinx workflow runs successfully on push events that include a tag.</p></li>
+<li><p>The workflow uses Python 3.11 to build the Sphinx documentation.</p></li>
+<li><p>The workflow installs the Python dependencies specified in the requirements.txt file.</p></li>
+<li><p>The workflow runs the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> command to generate the Sphinx documentation.</p></li>
+</ul>
+</li>
+<li><p><strong>GitHub Actions Badges (10 points):</strong></p>
+<ul>
+<li><p>The Pytest badge displays the status of the Pytest workflow.</p></li>
+<li><p>The Sphinx badge displays the status of the Sphinx workflow.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="task-1-accept-github-classroom-assignment">
+<h2>Task 1: Accept GitHub Classroom Assignment<a class="headerlink" href="#task-1-accept-github-classroom-assignment" title="Permalink to this heading">#</a></h2>
+<p>Accept the GitHub Classroom assignment by clicking on the following link:</p>
+<p><a class="reference external" href="https://classroom.github.com/a/Gc-fowPs">https://classroom.github.com/a/Gc-fowPs</a></p>
+<p>This link will create a private repository for you on GitHub, where you will complete the lab assignment.</p>
+</section>
+<section id="task-2-grade-conversion-function">
+<h2>Task 2: Grade Conversion Function<a class="headerlink" href="#task-2-grade-conversion-function" title="Permalink to this heading">#</a></h2>
+<p>Your first task is to write a Python function that converts a student’s numerical score into a corresponding letter grade. This function should be added to the <strong>sample/course_grader.py</strong> file below the line that reads <strong># TODO-1: add convert_to_letter_grade(score) function</strong>.</p>
+<section id="function-requirements">
+<h3>Function Requirements:<a class="headerlink" href="#function-requirements" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Function Name:</strong> The function must be correctly named <code class="docutils literal notranslate"><span class="pre">convert_to_letter_grade</span></code>.</p></li>
+<li><p><strong>Input Argument:</strong> It should accept a single parameter named <code class="docutils literal notranslate"><span class="pre">score</span></code>, representing the student’s numerical score to be converted into a letter grade.</p></li>
+<li><p><strong>Output:</strong> The function is expected to return an <strong>upper-case</strong> string indicating the student’s letter grade, determined based on the following score ranges:</p>
+<ul>
+<li><p><strong>A:</strong> 90 to 100</p></li>
+<li><p><strong>B:</strong> 80 to 89</p></li>
+<li><p><strong>C:</strong> 70 to 79</p></li>
+<li><p><strong>D:</strong> 60 to 69</p></li>
+<li><p><strong>F:</strong> Below 60</p></li>
+</ul>
+</li>
+<li><p><strong>Invalid Input:</strong></p>
+<ul>
+<li><p>The function must raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with the message “Score must be between 0 and 100.” for input scores outside the 0 to 100 range.</p></li>
+<li><p>The function must raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> with the message “Score must be a numeric value.” if the input score is not an <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Docstring:</strong> The function must be documented through a docstring that follows the Google Python Style Guide. The docstring must have a description of the function, specifying the nature of its inputs, outputs, and the exceptions it raises.</p></li>
+</ul>
+</section>
+</section>
+<section id="task-3-grade-conversion-unit-tests">
+<h2>Task 3: Grade Conversion Unit Tests<a class="headerlink" href="#task-3-grade-conversion-unit-tests" title="Permalink to this heading">#</a></h2>
+<p>The second task involves creating a comprehensive set of unit tests for the <code class="docutils literal notranslate"><span class="pre">convert_to_letter_grade</span></code> function to confirm it adheres to all the specified requirements and correctly handles edge cases. These tests should be placed in the <strong>tests/test_course_grader.py</strong> file.</p>
+<section id="test-requirements">
+<h3>Test Requirements:<a class="headerlink" href="#test-requirements" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Testing Library:</strong> You must use the <strong>pytest</strong> library for writing the unit tests. The provided <strong>requirements.txt</strong> file already includes the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> package with version constraints. Do not modify the <strong>requirements.txt</strong> file.</p></li>
+<li><p><strong>Test Exact Boundaries:</strong> Below the line that reads <strong># TODO-1: Add test_exact_grade_boundaries() function</strong>, add a method named <code class="docutils literal notranslate"><span class="pre">test_exact_boundaries</span></code> to check the function’s behavior at the precise score boundaries for each letter grade. Examples of the exact boundaries include scores like 0, 59, 60, …, 89, 90, and 100. This method should contain a total of <strong>9 test cases</strong>.</p></li>
+<li><p><strong>Test Invalid Input Value:</strong> Below the line that reads <strong># TODO-2: Add test_invalid_numerical_score() function</strong>, add a method named <code class="docutils literal notranslate"><span class="pre">test_invalid_numerical_score</span></code> to verify that the function raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> when provided with scores outside the permissible range of 0 to 100. Additionally, you must validate that the message in the exception matches the expected error message (e.g., “Score must be between 0 and 100.” for <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>). There should be <strong>2 test cases</strong> for this method, but remember to check both the error type and the message returned by the exception.</p></li>
+<li><p><strong>Test Invalid Input Type:</strong> Below the line that reads <strong># TODO-3: Add test_non_numeric_input() function</strong>, add a method named <code class="docutils literal notranslate"><span class="pre">test_non_numeric_type</span></code> to verify the function raises a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> when given inputs that are not valid numerical values. Test at least one case for each of the following types: <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, and <code class="docutils literal notranslate"><span class="pre">None</span></code>. Additionally, validate that the message in the exception matches the expected error message (“Score must be a numeric value.”). There should be <strong>3 test cases</strong> for this method, but remember to check both the error type and the message returned by the exception.</p></li>
+</ul>
+</section>
+</section>
+<section id="task-4-github-actions-pytest-workflow">
+<h2>Task 4: GitHub Actions Pytest Workflow<a class="headerlink" href="#task-4-github-actions-pytest-workflow" title="Permalink to this heading">#</a></h2>
+<p>GitHub Actions workflows are located in the <strong>.github/workflows</strong> directory. The workflow defined by <strong>ci-pytest.yaml</strong> runs tests using Pytest whenever a new commit is pushed to the repository. The workflow requires modifications to ensure it runs the tests correctly.</p>
+<section id="pytest-workflow-updates">
+<h3>Pytest Workflow Updates:<a class="headerlink" href="#pytest-workflow-updates" title="Permalink to this heading">#</a></h3>
+<p>Update the <strong>ci-pytest.yaml</strong> workflow as follows:</p>
+<ul>
+<li><p><strong>Workflow Trigger:</strong> The workflow should trigger on <strong>push</strong> events to the <strong>main</strong> branch, but only when the push event does not include a <strong>tag</strong>. This can be accomplished by using the <strong>branches</strong> filter and the <strong>tags-ignore</strong> filter. Replace <strong>TODO-1</strong> with <code class="docutils literal notranslate"><span class="pre">'main'</span></code> to match <strong>push</strong> events on the <strong>main</strong> branch and <strong>TODO-2</strong> with <code class="docutils literal notranslate"><span class="pre">'*'</span></code> to match any <strong>tag</strong>. The updated trigger should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;main&#39;</span>
+<span class="w">    </span><span class="nt">tags-ignore</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Matrix Strategy:</strong> The workflow should use a matrix strategy to test the code against different versions of Python. The matrix should include the following Python versions: 3.10 and 3.11. Replace the placeholder <strong>TODO-3</strong> with <code class="docutils literal notranslate"><span class="pre">'3.10'</span></code> and <strong>TODO-4</strong> with <code class="docutils literal notranslate"><span class="pre">'3.11'</span></code>. The updated matrix configuration should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;3.10&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Python Dependencies:</strong> The workflow should install the Python packages specified in the <strong>requirements.txt</strong> file. Replace the placeholder <strong>TODO-5</strong> with the command <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>. The updated Python requirements should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">    </span><span class="no">pip install -r requirements.txt</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run Pytest:</strong> We want <strong>pytest</strong> to run tests from any module located in the <strong>tests</strong> directory. This can be accomplished by calling <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/</span></code>. Replace the placeholder <strong>TODO-6</strong> with the command <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/</span></code>. The YAML definition to run Pytest should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test with pytest</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="task-5-github-actions-sphinx-workflow">
+<h2>Task 5: GitHub Actions Sphinx Workflow<a class="headerlink" href="#task-5-github-actions-sphinx-workflow" title="Permalink to this heading">#</a></h2>
+<p>GitHub Actions workflows are located in the <strong>.github/workflows</strong> directory. The workflow defined by <code class="docutils literal notranslate"><span class="pre">ci-sphinx.yaml</span></code> runs Sphinx to automatically generate HTML documentation from the Python docstrings in the repository. The workflow requires modifications to ensure it runs the tests correctly.</p>
+<section id="sphinx-workflow-updates">
+<h3>Sphinx Workflow Updates:<a class="headerlink" href="#sphinx-workflow-updates" title="Permalink to this heading">#</a></h3>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">ci-sphinx.yaml</span></code> workflow as follows:</p>
+<ul>
+<li><p><strong>Workflow Trigger:</strong> The workflow should trigger on <strong>push</strong> events that include a <strong>tag</strong>. This can be accomplished by using the <strong>tags</strong> filter. Replace <strong>TODO-1</strong> with <code class="docutils literal notranslate"><span class="pre">'v*.*.*'</span></code> to match any <strong>tag</strong> that follows the semantic versioning format (MAJOR.MINOR.PATCH). The updated trigger should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
+<span class="nt">push</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;v*.*.*&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Python Version:</strong> For this workflow, we don’t need to use a matrix strategy; we only need to run the workflow using Python 3.11. Replace the placeholder <strong>TODO-2</strong> with <code class="docutils literal notranslate"><span class="pre">'3.11'</span></code>. The updated Python version should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Python Dependencies:</strong> The workflow should install the Python packages specified in the <strong>requirements.txt</strong> file. Replace the placeholder <strong>TODO-3</strong> with the command <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>. The updated Python requirements should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">    </span><span class="no">pip install -r requirements.txt</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Make HTML:</strong> We need to run the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> command to build the Sphinx documentation. Replace the placeholder <strong>TODO-4</strong> with the command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>. The YAML definition to run Sphinx should look like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build HTML documentation</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">sphinx-apidoc -o docs/source/ sample/</span>
+<span class="w">    </span><span class="no">cd docs</span>
+<span class="w">    </span><span class="no">make html</span>
+<span class="w">    </span><span class="no">cd build</span>
+<span class="w">    </span><span class="no">zip ../../api_docs.zip -r html/</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="task-6-github-actions-badge">
+<h2>Task 6: GitHub Actions Badge<a class="headerlink" href="#task-6-github-actions-badge" title="Permalink to this heading">#</a></h2>
+<p>You can use GitHub Actions badges to display the status (e.g., passing, failing) of any defined GitHub Actions workflows. This is done by adding a badge URL to the <strong><a class="reference external" href="http://README.md">README.md</a></strong> file.</p>
+<p>The badge consists of two parts: one part is the status image URL, and the second part is a link to the GitHub Actions workflow page. Clicking the badge will take you to the GitHub Actions workflow page where you can see the status of the workflow.</p>
+<section id="readme-badge-updates">
+<h3>README Badge Updates:<a class="headerlink" href="#readme-badge-updates" title="Permalink to this heading">#</a></h3>
+<p>Update both badges in the <strong><a class="reference external" href="http://README.md">README.md</a></strong> file as follows:</p>
+<ul class="simple">
+<li><p><strong>Pytest Badge:</strong> Replace both instances of <code class="docutils literal notranslate"><span class="pre">TODO-1</span></code> with your GitHub username, and both instances of <code class="docutils literal notranslate"><span class="pre">TODO-2</span></code> with the repository name.</p></li>
+<li><p><strong>Sphinx Badge:</strong> Replace both instances of <code class="docutils literal notranslate"><span class="pre">TODO-3</span></code> with your GitHub username, and both instances of <code class="docutils literal notranslate"><span class="pre">TODO-4</span></code> with the repository name.</p></li>
+</ul>
+</section>
+</section>
+<section id="task-7-verify-it-works">
+<h2>Task 7: Verify It Works<a class="headerlink" href="#task-7-verify-it-works" title="Permalink to this heading">#</a></h2>
+<p>After completing the tasks, you should verify everything is working:</p>
+<ol class="arabic">
+<li><p>Both GitHub Actions workflows should run successfully and should display a green checkmark.</p></li>
+<li><p>The Pytest badge should display <code class="docutils literal notranslate"><span class="pre">passing</span></code> and link to the GitHub Actions workflow page. This is what the badge should look like:</p>
+<img alt="unit test" src="../../_images/github_badge_actions_pytest.svg" /></li>
+<li><p>The Sphinx badge should display <code class="docutils literal notranslate"><span class="pre">passing</span></code> and link to the GitHub Actions workflow page. This is what the badge should look like:</p>
+<img alt="docs generation" src="../../_images/github_badge_actions_sphinx.svg" /></li>
+<li><p>The GitHub Actions workflow page should have an artifact named <code class="docutils literal notranslate"><span class="pre">api_docs.zip</span></code> that contains the HTML documentation generated by Sphinx.</p></li>
+</ol>
+</section>
+<section id="task-8-review-the-html-documentation">
+<h2>Task 8: Review the HTML Documentation<a class="headerlink" href="#task-8-review-the-html-documentation" title="Permalink to this heading">#</a></h2>
+<p>After the Sphinx workflow runs successfully, you should review the HTML documentation generated by Sphinx. Download the <strong>api_docs.zip</strong> artifact from the GitHub Actions workflow page. Extract the contents of the zip file and open the <strong>index.html</strong> file in a web browser. You should see documentation for the <code class="docutils literal notranslate"><span class="pre">course_grader</span></code> module and the <code class="docutils literal notranslate"><span class="pre">google_docstrings</span></code> module.</p>
+</section>
+<section id="task-9-submit-your-assignment-to-canvas">
+<h2>Task 9: Submit Your Assignment to CANVAS<a class="headerlink" href="#task-9-submit-your-assignment-to-canvas" title="Permalink to this heading">#</a></h2>
+<p>After completing the tasks, you should submit your assignment to CANVAS. The assignment should include the following:</p>
+<ul class="simple">
+<li><p>A link to your GitHub repository.</p></li>
+<li><p>The <strong>api_docs.zip</strong> artifact generated by the Sphinx workflow.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./graded_artifacts/lab_assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab_3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 3 - Containerization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../course_project/course_project.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Course Project</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-rubric">Grading Rubric</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-accept-github-classroom-assignment">Task 1: Accept GitHub Classroom Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-grade-conversion-function">Task 2: Grade Conversion Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-requirements">Function Requirements:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-grade-conversion-unit-tests">Task 3: Grade Conversion Unit Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-requirements">Test Requirements:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-github-actions-pytest-workflow">Task 4: GitHub Actions Pytest Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytest-workflow-updates">Pytest Workflow Updates:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-github-actions-sphinx-workflow">Task 5: GitHub Actions Sphinx Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-workflow-updates">Sphinx Workflow Updates:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-github-actions-badge">Task 6: GitHub Actions Badge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-badge-updates">README Badge Updates:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7-verify-it-works">Task 7: Verify It Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8-review-the-html-documentation">Task 8: Review the HTML Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9-submit-your-assignment-to-canvas">Task 9: Submit Your Assignment to CANVAS</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
