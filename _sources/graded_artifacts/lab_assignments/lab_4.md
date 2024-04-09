@@ -2,6 +2,10 @@
 
 **Due Date:** Tuesday, April 23, 2024, at 11:59 PM
 
+```{note}
+There is a lot of content in this lab assignment.  To help you get it done, please see the [Lab 4 Resources](lab_4_resources.md) for additional information and examples.
+```
+
 ## Objective
 
 This lab is designed to help you practice key aspects of good software development practices, including writing unit tests, using GitHub Actions for continuous integration, and generating documentation with Sphinx. You will be tasked with writing a Python function that converts a student's numerical score into a corresponding letter grade. Additionally, you will write a comprehensive set of unit tests to verify the function's behavior and edge cases. Finally, you will configure GitHub Actions workflows to run the unit tests and generate documentation with Sphinx, and you will add badges to the README file to display the status of the GitHub Actions workflows.
