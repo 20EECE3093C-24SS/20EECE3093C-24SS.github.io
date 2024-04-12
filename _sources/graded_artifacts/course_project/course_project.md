@@ -1,5 +1,11 @@
 # Course Project
 
+```{admonition} Due Date
+:class: tip
+The course project is due on Tuesday, April 23 at 11:59 PM.
+```
+
+
 **Individual or Team of 2 or 3 Students**
 
 In this course project, you will contribute to an open-source project on GitHub. Your main goal is to develop and submit a major enhancement, bug fix, or new feature. Strive to make contributions that are well-crafted and likely to be accepted by the project's maintainers.
