@@ -23,7 +23,7 @@ The tentative schedule for the quizzes is provided below. Please note that this 
 *   - 3
     - Tuesday, April 2, 2024
 *   - 4
-    - Tuesday, April 16, 2024
+    - Thursday, April 18, 2024
 :::
 
 
