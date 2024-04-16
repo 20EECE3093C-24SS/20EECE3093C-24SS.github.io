@@ -37,4 +37,4 @@ The lecture materials listed below, as detailed in the **material** column on th
 
 * [Lecture, March 28](https://20eece3093c-24ss.github.io/24ss/slides/lecture_16.html)
 * [Lecture, April 4](https://20eece3093c-24ss.github.io/24ss/slides/lecture_17.html)
-* [Lecture, April 16](https://20eece3093c-24ss.github.io/24ss/slides/lecture_24.html)
+* [Lecture, April 16](https://20eece3093c-24ss.github.io/24ss/slides/lecture_23.html)
